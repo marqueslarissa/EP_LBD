@@ -1,0 +1,79 @@
+INSERT INTO Level_knowledge VALUES(1, 'Estagiario');
+INSERT INTO Level_knowledge VALUES(2, 'Júnior 1');
+INSERT INTO Level_knowledge VALUES(3, 'Júnior 2');
+INSERT INTO Level_knowledge VALUES(4, 'Júnior 3');
+INSERT INTO Level_knowledge VALUES(5, 'Pleno 1');
+INSERT INTO Level_knowledge VALUES(6, 'Pleno 2');
+INSERT INTO Level_knowledge VALUES(7, 'Pleno 3');
+INSERT INTO Level_knowledge VALUES(8, 'Senior 1');
+INSERT INTO Level_knowledge VALUES(9, 'Senior 2');
+INSERT INTO Level_knowledge VALUES(10, 'Senior 3');
+INSERT INTO Level_knowledge VALUES(11, 'Especialista 1');
+INSERT INTO Level_knowledge VALUES(12, 'Especialista 2');
+INSERT INTO Level_knowledge VALUES(13, 'Especialista 3');
+
+INSERT INTO Project VALUES(1, 'Projeto Blissey', '2020-01-01', '2020-12-14');
+INSERT INTO Project VALUES(2, 'Projeto Chansey', '2019-03-12', '2020-01-12');
+INSERT INTO Project VALUES(3, 'Projeto Articuno', '2018-03-12', '2019-05-20');
+INSERT INTO Project VALUES(4, 'Projeto Charmander', '2020-03-12', '2021-02-16');
+INSERT INTO Project VALUES(5, 'Projeto Arceus', '2020-04-10', '2022-01-09');
+
+INSERT INTO Sale VALUES(1,'2019-12-28',100000, 1);
+INSERT INTO Sale VALUES(2,'2019-01-03',350000, 2);
+INSERT INTO Sale VALUES(3,'2017-12-30',3000000, 3);
+INSERT INTO Sale VALUES(4,'2020-01-19',500000, 4);
+INSERT INTO Sale VALUES(5,'2019-12-20',1000000, 5);
+
+INSERT INTO Sale_history VALUES(1,'2019-12-28',100000, 1,1);
+INSERT INTO Sale_history VALUES(2,'2019-01-03',350000, 2,2);
+INSERT INTO Sale_history VALUES(3,'2017-12-30',3000000, 3,3);
+INSERT INTO Sale_history VALUES(4,'2020-01-19',500000, 4,4);
+INSERT INTO Sale_history VALUES(5,'2019-12-20',1000000, 5,5);
+
+INSERT INTO Financial_control VALUES(1,100000, 1);
+INSERT INTO Financial_control VALUES(2,350000, 2);
+INSERT INTO Financial_control VALUES(3,3000000, 3);
+INSERT INTO Financial_control VALUES(4,500000, 4);
+INSERT INTO Financial_control VALUES(5,1000000, 5);
+
+INSERT INTO Department VALUES(1, 'Finanças');
+INSERT INTO Department VALUES(2, 'Tecnologia');
+INSERT INTO Department VALUES(3, 'Operacional');
+INSERT INTO Department VALUES(4, 'Relações Humanas');
+
+INSERT INTO team VALUES(1, 'Alpha');
+INSERT INTO team VALUES(2, 'Beta');
+INSERT INTO team VALUES(3, 'Omega');
+INSERT INTO team VALUES(4, 'Delta');
+INSERT INTO team VALUES(5, 'Tau');
+
+
+INSERT INTO Employee VALUES(1, 'Nelson Paulo Lorenzo Ramos', '2020-01-01', '1000.00', 1, 2, 1);
+INSERT INTO Employee VALUES(2, 'Lorena Tatiane Duarte', '2019-03-12', '3000.00', 2, 2, 1);
+INSERT INTO Employee VALUES(3, 'Julio Victor Porto', '2018-03-12', '7000.00', 5, 2, 1);
+INSERT INTO Employee VALUES(4, 'Teresinha Tereza Luzia Teixeira', '2020-03-12', '10000.00', 6, 2, 1);
+INSERT INTO Employee VALUES(5, 'Andreia Sara Maria Cavalcanti', '2020-04-10', '30000.00', 13, 2, 1);
+
+INSERT INTO Employee VALUES(6, 'Gustavo Rodrigo Leonardo Barbosa', '2020-01-01', '1000.00', 1, 2, 2);
+INSERT INTO Employee VALUES(7, 'Gabriel Pietro da Cruz', '2019-03-12', '7000.00', 3, 2, 2);
+INSERT INTO Employee VALUES(8, 'Clara Sônia Caldeira', '2018-03-12', '10000.00', 6, 2, 2);
+INSERT INTO Employee VALUES(9, 'Eliane Giovana Rita Silva', '2020-03-12', '10000.00', 6, 2, 2);
+INSERT INTO Employee VALUES(10, 'Antonella Natália Ayla Novaes', '2020-04-10', '30000.00', 13, 2, 2);
+
+INSERT INTO Employee VALUES(11, 'Alexandre Enzo Ferreira', '2020-01-01', '1000.00', 1, 2, 3);
+INSERT INTO Employee VALUES(12, 'Camila Sophia Cristiane Sales', '2019-03-12', '7000.00', 1, 2, 3);
+INSERT INTO Employee VALUES(13, 'Julia Isabelly Nunes', '2018-03-12', '10000.00', 6, 2, 3);
+INSERT INTO Employee VALUES(14, 'Rita Ana Melo', '2020-03-12', '25000.00', 12, 2, 3);
+INSERT INTO Employee VALUES(15, 'Iago João Vinicius da Cunha', '2020-04-10', '30000.00', 13, 2, 3);
+
+INSERT INTO Employee VALUES(16, 'Antônia Teresinha Isabel da Mata', '2020-01-01', '1000.00', 2, 2, 4);
+INSERT INTO Employee VALUES(17, 'Rodrigo Joaquim Breno Freitas', '2019-03-12', '7000.00', 3, 2, 4);
+INSERT INTO Employee VALUES(18, 'Daniel Severino Figueiredo', '2018-03-12', '10000.00', 6, 2, 4);
+INSERT INTO Employee VALUES(19, 'Cristiane Ana Drumond', '2020-03-12', '13000.00', 10, 2, 4);
+INSERT INTO Employee VALUES(20, 'Luiza Jaqueline Sales', '2020-04-10', '13000.00', 10, 2, 4);
+
+INSERT INTO Employee VALUES(21, 'Josefa Patrícia Peixoto', '2020-01-01', '1000.00', 1, 2, 5);
+INSERT INTO Employee VALUES(22, 'Francisca Kamilly Débora Assunção', '2019-03-12', '8000.00', 4, 2, 5);
+INSERT INTO Employee VALUES(23, 'Patrícia Sara Maya Gonçalves', '2018-03-12', '10000.00', 6, 2, 5);
+INSERT INTO Employee VALUES(24, 'Cristiane Vitória Vieira', '2020-03-12', '13000.00', 10, 2, 5);
+INSERT INTO Employee VALUES(25, 'Brenda Emanuelly Isabela da Conceição', '2020-04-10', '30000.00', 13, 2, 5);
