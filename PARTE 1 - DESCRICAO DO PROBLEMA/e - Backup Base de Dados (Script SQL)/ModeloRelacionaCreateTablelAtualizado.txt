@@ -79,8 +79,7 @@
 	CREATE TABLE Financial_Control (
 		idt_financial_control INTEGER PRIMARY KEY,
 		total_cost_sale INTEGER,
-		idt_sale INTEGER,
-		fk_Sale_idt_sale INTEGER
+		idt_sale INTEGER
 	);
 
 	CREATE TABLE Departament_Management (
