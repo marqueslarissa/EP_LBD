@@ -1,4 +1,4 @@
---query 2 seleciona o funcionario, seu ID, seu nivel de conhecimento e seu time, assim como o ID do seu time
+--Query 1 seleciona o funcionario, seu ID, seu nivel de conhecimento e seu time, assim como o ID do seu time
 SELECT A.idt_employee, A.name_employee, B.name_knowledge ,A.idt_team,  A.name_team 
 FROM (SELECT E.idt_level_knowledge, E.name_employee, E.idt_employee, T.name_team, T.idt_team 
 		   FROM Employee as E
@@ -6,3 +6,50 @@ FROM (SELECT E.idt_level_knowledge, E.name_employee, E.idt_employee, T.name_team
 		   ON E.idt_team  = T.idt_team ) as A INNER JOIN level_knowledge as B
 		   ON A.idt_level_knowledge  = B.idt_knowledge 
 		   ORDER BY A.name_team,  B.idt_knowledge
+
+--Query 2 selecionar a média salarial dos gestores
+SELECT AVG(E.salary)
+FROM employee as E NATURAL JOIN team as T NATURAL JOIN manager as M
+WHERE E.idt_employee = M.fk_Employee_idt_employee
+
+--Query 3 para achar o time que obteve maior venda de projeto
+SELECT T.name_team, P.name_project, S.amount_sale_project
+FROM team as T NATURAL JOIN sale as S NATURAL JOIN project as P
+WHERE T.idt_project = P.idt_project AND P.idt_project = S.idt_project
+ORDER BY S.amount_sale_project DESC
+LIMIT 1
+
+--Query 4 selecionar o empregado que possui mais de dois dependentes
+SELECT E.name_employee
+FROM Employee E 
+LEFT JOIN (SELECT idt_employee, COUNT (*) as qtDependent FROM Dependent GROUP BY idt_employee) D ON E.idt_employee = D.idt_employee
+ WHERE D.qtDependent > 2
+
+
+ 
+ 
+ 
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

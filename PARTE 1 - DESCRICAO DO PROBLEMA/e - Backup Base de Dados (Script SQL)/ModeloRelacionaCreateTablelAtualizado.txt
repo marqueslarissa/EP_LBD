@@ -48,7 +48,8 @@
 
 	CREATE TABLE Team (
 		idt_team INTEGER  PRIMARY KEY,
-		name_team VARCHAR
+		name_team VARCHAR,
+                idt_project INTEGER
 	);
 
 	CREATE TABLE Project(
@@ -157,3 +158,7 @@
 	ALTER TABLE Department_Management ADD CONSTRAINT FK_department_Management_2
 		FOREIGN KEY (idt_department)
 		REFERENCES Department;
+
+        ALTER TABLE team ADD CONSTRAINT FK_project
+		FOREIGN KEY (idt_project)
+		REFERENCES Project;

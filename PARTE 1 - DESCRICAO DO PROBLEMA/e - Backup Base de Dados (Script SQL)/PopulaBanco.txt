@@ -41,11 +41,11 @@ INSERT INTO Department VALUES(2, 'Tecnologia');
 INSERT INTO Department VALUES(3, 'Operacional');
 INSERT INTO Department VALUES(4, 'Relações Humanas');
 
-INSERT INTO team VALUES(1, 'Alpha');
-INSERT INTO team VALUES(2, 'Beta');
-INSERT INTO team VALUES(3, 'Omega');
-INSERT INTO team VALUES(4, 'Delta');
-INSERT INTO team VALUES(5, 'Tau');
+INSERT INTO team VALUES(1, 'Alpha', 1);
+INSERT INTO team VALUES(2, 'Beta', 2);
+INSERT INTO team VALUES(3, 'Omega', 3);
+INSERT INTO team VALUES(4, 'Delta', 4);
+INSERT INTO team VALUES(5, 'Tau', 5);
 
 INSERT INTO Employee VALUES(1, 'Nelson Paulo Lorenzo Ramos', '2020-01-01', '1000.00', 1, 2, 1);
 INSERT INTO Employee VALUES(2, 'Lorena Tatiane Duarte', '2019-03-12', '3000.00', 2, 2, 1);
