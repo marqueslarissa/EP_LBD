@@ -171,3 +171,5 @@ INSERT INTO Especialist VALUES('Infra',19);
 INSERT INTO Especialist VALUES('BI',24);
 
 INSERT INTO Director VALUES('Desenvolvimento', 26);
+
+INSERT INTO Department_Management VALUES(1, 5, 2);

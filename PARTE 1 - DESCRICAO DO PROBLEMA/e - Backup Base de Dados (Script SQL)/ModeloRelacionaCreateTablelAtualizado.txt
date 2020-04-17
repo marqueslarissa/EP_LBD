@@ -1,4 +1,3 @@
-
 	CREATE TABLE Level_Knowledge (
 		idt_knowledge INTEGER PRIMARY KEY,
 		name_knowledge VARCHAR
@@ -10,7 +9,7 @@
 		date_admission DATE,
 		salary DECIMAL,
 		idt_level_knowledge INTEGER,
-		idt_departament INTEGER,
+		idt_department INTEGER,
 		idt_team INTEGER
 	);
 
@@ -81,17 +80,16 @@
 		idt_sale INTEGER
 	);
 
-	CREATE TABLE Department_Management (
-		idt_dpt_management INTEGER PRIMARY KEY,
-		name_dpt_management VARCHAR,
-		start_date DATE,
-		idt_department INTEGER
-	);
-
 	CREATE TABLE department (
 		idt_department INTEGER PRIMARY KEY,
 		name_department VARCHAR
 		
+	);
+	
+	CREATE TABLE Department_Management (
+		idt_dpt_management INTEGER PRIMARY KEY,
+		idt_employee INTEGER,
+		idt_department INTEGER
 	);
 
 	ALTER TABLE Employee ADD CONSTRAINT FK_Employee_2
@@ -131,10 +129,6 @@
 		REFERENCES Employee (idt_employee)
 		ON DELETE CASCADE;
 
-		ALTER TABLE Team ADD CONSTRAINT FK_Team_1
-		FOREIGN KEY (idt_manager)
-		REFERENCES Manager;
-
 	ALTER TABLE Sale ADD CONSTRAINT FK_Sale_2
 		FOREIGN KEY (idt_project)
 		REFERENCES Project;
@@ -151,10 +145,6 @@
 		FOREIGN KEY (idt_sale)
 		REFERENCES Sale;
 
-	ALTER TABLE Financial_Control ADD CONSTRAINT FK_Financial_Control_3
-		FOREIGN KEY (fk_Sale_idt_sale)
-		REFERENCES Sale (idt_sale);
-
 	ALTER TABLE Department_Management ADD CONSTRAINT FK_department_Management_2
 		FOREIGN KEY (idt_department)
 		REFERENCES Department;
@@ -162,3 +152,22 @@
         ALTER TABLE team ADD CONSTRAINT FK_project
 		FOREIGN KEY (idt_project)
 		REFERENCES Project;
+		
+		ALTER TABLE Department_Management ADD CONSTRAINT FK_Employee_2
+		FOREIGN KEY (idt_employee)
+		REFERENCES Employee;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
