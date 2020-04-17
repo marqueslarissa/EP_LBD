@@ -156,18 +156,3 @@
 		ALTER TABLE Department_Management ADD CONSTRAINT FK_Employee_2
 		FOREIGN KEY (idt_employee)
 		REFERENCES Employee;
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
