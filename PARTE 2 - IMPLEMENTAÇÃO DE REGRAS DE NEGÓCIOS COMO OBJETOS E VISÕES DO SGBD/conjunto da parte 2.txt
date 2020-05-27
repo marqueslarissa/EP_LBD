@@ -1,0 +1,37 @@
+VIEW
+
+* View que oculta os dados sensíveis do usuário, como por exemplo o salário.
+
+CREATE VIEW Infos_employee AS (
+SELECT A.idt_employee, A.name_employee, B.name_knowledge ,A.idt_team,  A.name_team 
+FROM (SELECT E.idt_level_knowledge, E.name_employee, E.idt_employee, T.name_team, T.idt_team 
+		   FROM Employee as E
+		   INNER JOIN Team as T
+		   ON E.idt_team  = T.idt_team ) as A INNER JOIN level_knowledge as B
+		   ON A.idt_level_knowledge  = B.idt_knowledge 
+		   ORDER BY A.name_team,  B.idt_knowledge
+);
+
+
+TRIGGER
+
+*Toda vez que um empregado é editado, uma copia dessa edição é salva através desta trigger na tabela
+de histórico de empregados. 
+
+CREATE OR REPLACE FUNCTION Save_history()
+RETURNS trigger AS
+$BODY$ BEGIN
+INSERT INTO employee_history VALUES (100,current_timestamp,nrow.salary,nrow.level_knowledge,nrow.idt_employee);
+RETURN NULL;
+END; $BODY$
+LANGUAGE 'plpgsql'
+
+
+CREATE TRIGGER Save_history
+AFTER UPDATE
+ON employee_history
+FOR EACH ROW
+EXECUTE PROCEDURE Save_history();
+
+*Os times podem ter até 5 empregados em cada time, por isso essa trigger irá barrar caso haja a tentativa de inserção 
+em um grupo com 5 ou mais empregados.
