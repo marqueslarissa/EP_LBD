@@ -54,6 +54,40 @@ DELETE FROM employee WHERE name_employee = 'Cintia Silva';
 UPDATE employee SET salary = 1500 WHERE name_employee ='Conceição Silva';
 
 
+/* ESTA TRIGGER É CRIADA PARA VERIFICAR A INSERÇÃO NO CAMPO SALARIO, SE INSERIRMOS OU ATUALIZARMOS ESSE CAMPO COM UM VALOR MENOR DO QUE O PISO SALARIO DA EMPRESA ELE RETORNA UMA MENSAGEM DE ERRO 
+E TAMBÉM VERIFICA ANTES DE INSERIOR OU ATUALIZAR SE O NOME DO USUARIO É INVALIDO RETORNANDO TAMBÉM UM MENSAGEM DE ERRO NÃO DEIXANDO OS CAMPOS SOFREREM QUALQUER ALTERAÇÃO*/
+
+CREATE FUNCTION emp_check_sal() RETURNS trigger AS $emp_check_sal$
+    BEGIN
+               IF NEW.name_employee IS  NULL THEN
+            RAISE EXCEPTION 'NOME FUNCIONARIO NAO PODE SER NULO';
+        END IF;
+        IF NEW.salary IS NULL THEN
+            RAISE EXCEPTION '% FUNCIONARIO NAO PODE TER SALARIO NULO', NEW.name_employee;
+        END IF;
+       
+           IF NEW.salary < 1000 THEN
+            RAISE EXCEPTION '% FUNCIONARIO NAO PODE TER SALARIO INFERIOR A R$ 10000', NEW.name_employee;
+        END IF;
+        RETURN NEW;
+    END;
+$emp_check_sal$ LANGUAGE plpgsql;
+
+CREATE TRIGGER check_sal_emp 
+  BEFORE INSERT OR UPDATE ON employee
+    FOR EACH ROW EXECUTE procedure emp_check_sal();
+
+/* CASOS DE TESTE */
+
+     update employee set salary = 3500 where NAME_EMPLOYEE = 'Nelson Paulo Lorenzo Ramos';
+  
+    INSERT INTO Employee VALUES(32, 'RAFAEL VIERIA DE LIMA', '2019-01-10', '50000.00', 6, 2, 1);
+   
+    INSERT INTO Employee VALUES(33, 'MARCIO OLIVEIRA', '2020-01-10', '900.00', 1, 2, 1);
+   
+
+
+
 
 *Os times podem ter até 5 empregados em cada time, por isso essa trigger irá barrar caso haja a tentativa de inserção 
 em um grupo com 5 ou mais empregados.
