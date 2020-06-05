@@ -47,6 +47,12 @@ CREATE TRIGGER emp_history
 AFTER INSERT OR UPDATE OR DELETE ON employee
     FOR EACH ROW EXECUTE PROCEDURE processa_emp_history();
 
+/*casos de teste  */
+
+INSERT INTO Employee VALUES(30, 'Gabriel Lourenco', '2017-01-10', '40000.00', 13, 2, 5);
+DELETE FROM employee WHERE name_employee = 'Cintia Silva';
+UPDATE employee SET salary = 1500 WHERE name_employee ='Conceição Silva';
+
 
 
 *Os times podem ter até 5 empregados em cada time, por isso essa trigger irá barrar caso haja a tentativa de inserção 
