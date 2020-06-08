@@ -1,5 +1,19 @@
 VIEW para otimização de consulta
 
+create view relatorio_otimizado as (
+SELECT E.name_employee, E.date_admission, E.salary,L.name_knowledge, D.name_dependent, DEP.name_department, t.name_team, P.name_project
+FROM employee AS E
+LEFT JOIN level_knowledge AS L ON L.idt_knowledge = E.idt_level_knowledge
+LEFT JOIN (SELECT name_dependent , idt_employee
+FROM dependent 
+) AS D on d.idt_employee = e.idt_employee
+LEFT JOIN department AS DEP on dep.idt_department = e.idt_department 
+left join team as T on T.idt_team = e.idt_team 
+LEFT join (SELECT name_project , idt_project 
+FROM project )
+ AS P on p.idt_project = t.idt_project 
+ order by 1,5
+ );
 
 
 
