@@ -1,1 +1,4 @@
 DUAS ASSERÇÕES
+
+*Os times podem ter até 5 empregados em cada time, por isso essa trigger irá barrar caso haja a tentativa de inserção 
+em um grupo com 5 ou mais empregados.

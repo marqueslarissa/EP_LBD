@@ -1,27 +1,4 @@
 
-TRIGGER
-
-*Toda vez que um empregado é editado, uma copia dessa edição é salva através desta trigger na tabela
-de histórico de empregados. 
-
-CREATE OR REPLACE FUNCTION Save_history()
-RETURNS trigger AS
-$BODY$ BEGIN
-INSERT INTO employee_history VALUES (100,current_timestamp,nrow.salary,nrow.level_knowledge,nrow.idt_employee);
-RETURN NULL;
-END; $BODY$
-LANGUAGE 'plpgsql'
-
-
-CREATE TRIGGER Save_history
-AFTER UPDATE
-ON employee_history
-FOR EACH ROW
-EXECUTE PROCEDURE Save_history();
-
-
-
-
 /* Toda vez que um empregado é editado, uma copia dessa edição é salva através desta trigger na tabela
 de histórico de empregados */
 
@@ -89,5 +66,3 @@ CREATE TRIGGER check_sal_emp
 
 
 
-*Os times podem ter até 5 empregados em cada time, por isso essa trigger irá barrar caso haja a tentativa de inserção 
-em um grupo com 5 ou mais empregados.
