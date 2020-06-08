@@ -1,13 +1,13 @@
 VIEW
 
-* View que oculta os dados sensíveis do usuário, como por exemplo o salário.
+* View que oculta os dados sensíveis do usuário, como por exemplo o salário e id do employee.
 
 CREATE VIEW Infos_employee AS (
-SELECT A.idt_employee, A.name_employee, B.name_knowledge ,A.idt_team,  A.name_team 
-FROM (SELECT E.idt_level_knowledge, E.name_employee, E.idt_employee, T.name_team, T.idt_team 
+SELECT A.name_employee, B.name_knowledge,  A.name_team 
+FROM (SELECT E.idt_level_knowledge, E.name_employee, T.name_team, T.idt_team 
 		   FROM Employee as E
 		   INNER JOIN Team as T
-		   ON E.idt_team  = T.idt_team ) as A INNER JOIN level_knowledge as B
+		   ON E.idt_team = T.idt_team ) as A INNER JOIN level_knowledge as B
 		   ON A.idt_level_knowledge  = B.idt_knowledge 
 		   ORDER BY A.name_team,  B.idt_knowledge
 );
