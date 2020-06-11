@@ -1,6 +1,8 @@
-VIEW
+VIEW DE SEGURANÇA
 
-* View que oculta os dados sensíveis do usuário, como por exemplo o salário e id do employee.
+*	Esta Query serviria para uma listagem de funcionários da empresa no sistema, por conta disso, há a necessidade de ocultar dados sensíveis,
+como por exemplo salário, e outros dados únicos(como ID), que poderiam dar acesso a outros dados, como por exemplo a lista de dependentes.
+	Além disso, é útil a criação da view pois será uma query muito requisitada, já que estará com um fácil acesso no sistema.
 
 CREATE VIEW Infos_employee AS (
 SELECT A.name_employee, B.name_knowledge,  A.name_team 
