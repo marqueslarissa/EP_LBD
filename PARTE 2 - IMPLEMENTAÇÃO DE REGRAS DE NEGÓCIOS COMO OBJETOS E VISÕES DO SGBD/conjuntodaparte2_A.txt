@@ -1,4 +1,42 @@
-DUAS ASSERÇÕES
+*PROCEDURE criada para que seja possível eleger um empregado como Manager do time, contudo, segue a regra de que sempre a pessoa com maior nível de conhecimento 
+fica com o cargo de Manager do time.
 
-*Os times podem ter até 5 empregados em cada time, por isso essa trigger irá barrar caso haja a tentativa de inserção 
-em um grupo com 5 ou mais empregados.
+create procedure Team_Ver (id_team int)
+LANGUAGE plpgsql
+AS $$
+      DECLARE c1 int;
+BEGIN
+      SELECT idt_employee INTO c1
+      FROM employee 
+      WHERE idt_team = id_team
+      ORDER BY idt_level_knowledge DESC
+      LIMIT 1;
+      INSERT INTO Manager VALUES(c1);
+END
+$$;
+CALL Team_Ver(1);
+CALL Team_Ver(2);
+CALL Team_Ver(3);
+
+*PROCEDURE criada com o intuito de finalizar um projeto, colocando a data final automaticamente. Contudo, segue a regra de, sempre que um projeto é finalizado, o
+time que participava deste fica com o idt_project nulo, indicando que não está vinculado a nenhum projeto, podendo assim ser alocado para outro projeto.
+
+create procedure Finish_project (id_project int)
+LANGUAGE SQL
+AS $$
+
+UPDATE team
+SET idt_project = NULL
+WHERE idt_project = id_project;
+
+UPDATE project
+SET date_final = current_timestamp
+WHERE idt_project = id_project;
+
+$$;
+
+CALL Finish_project(1);
+CALL Finish_project(2);
+CALL Finish_project(3);
+
+
