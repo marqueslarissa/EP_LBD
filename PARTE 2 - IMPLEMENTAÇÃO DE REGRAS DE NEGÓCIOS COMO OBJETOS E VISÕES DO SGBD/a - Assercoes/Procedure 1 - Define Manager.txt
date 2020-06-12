@@ -18,12 +18,30 @@ END
 $$;
 
 /* CASOS DE TESTE
-* CASO 1: 
-* CASO 2:
-* CASO 3: */
 
-CASO 1 - CALL Team_Ver(1);
+CASO 1:
+	Primeiramente deve rodar o comando delete para que seja retirado o registro manager do time 1, para que, em seguida, possa ser chamado o comando CALL
+e assim seja incluído um manager novo seguindo a regra de negócio em questão.
 
-CASO 2 - CALL Team_Ver(2);
+DELETE
+FROM manager
+WHERE fk_employee_idt_employee = 5
 
-CASO 3 - CALL Team_Ver(3);
+CALL Team_Ver(1);
+
+CASO 2:
+	Primeiramente deve rodar o comando delete para que seja retirado o registro manager do time 2, para que, em seguida, possa ser chamado o comando CALL
+e assim seja incluído um manager novo seguindo a regra de negócio em questão.
+
+DELETE
+FROM manager
+WHERE fk_employee_idt_employee = 10
+
+CALL Team_Ver(2);
+
+CASO 3:
+	Neste caso, haverá um erro, pelo fato de tentar uma inserção em um time em que o empregado com o maior nível de conhecimento já está como manager do grupo.
+
+CALL Team_Ver(3);
+
+*/
