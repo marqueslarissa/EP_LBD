@@ -3,7 +3,10 @@
 * seguindo a regra de negocio de que quando esse campo for atualizado ou se for inserido um novo registro 
 * com um valor menor do que o piso do salario da empresa, retorna uma mensagem de erro. Também ocorre a 
 * verificacao se o nome do usuario, que esta realizando a modificacao, é valido retornando assim uma mensagem 
-* de erro caso contrário e impedindo que esse campo (que eh considedado dado sensivel) seja alterado facilmente. */
+* de erro caso contrário e impedindo que esse campo (que eh considerado dado sensivel) seja alterado facilmente. */
+
+/* NO POSTGRES O FOR EACH STATEMENT É UM COMANDO PADRAO QUE CHAMA A FUNCAO CRIADA APOS A EXECUTACAO DE UM COMANDO DML, 
+* IDENPENDENTE SE FOR A NIVEL DE TABELA OU LINHA */
 
 CREATE FUNCTION emp_check_sal() RETURNS trigger AS $emp_check_sal$
 BEGIN
@@ -25,7 +28,7 @@ $emp_check_sal$ LANGUAGE plpgsql;
 * ANTES DE ALGUM COMANDO DML (SENDO INSERT OU UPDATE) FOR EXECUTADO NA TABELA EMPLOYEE EXECUTE A FUNCAO emp_check_sal */
 CREATE TRIGGER check_sal_emp 
 	BEFORE INSERT OR UPDATE ON employee
-    FOR EACH ROW EXECUTE procedure emp_check_sal();
+    FOR EACH STATEMENT EXECUTE procedure emp_check_sal();
 
 /* CASOS DE TESTE
 * CASO 1: 
