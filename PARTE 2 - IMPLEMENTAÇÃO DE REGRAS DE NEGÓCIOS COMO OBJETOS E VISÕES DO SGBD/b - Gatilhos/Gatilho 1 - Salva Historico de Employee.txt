@@ -1,0 +1,40 @@
+/* TRIGGER
+* Essa triguer eh "engatilhada" toda vez que um empregado (tabela employee) eh editada, fazendo com que uma copia 
+* dessa edição seja salva na tabela de historico de empregados (tabela employee_history) */
+
+CREATE OR REPLACE FUNCTION processa_emp_history() RETURNS TRIGGER AS $processa_emp_history$  /* criação da função processa_emp_history  */
+BEGIN /*inicio do bloco que verifica os comandos DML para atualizacao da tabela employee_history, selecionando os campos novos e inserindo na tabela*/
+	IF (TG_OP = 'DELETE') THEN
+		INSERT INTO employee_history(date_update, salary_update, level_knowledge_udpdate, idt_employee) SELECT now(),old.salary,old.idt_level_knowledge, OLD.idt_employee;
+        RETURN OLD;
+	ELSIF (TG_OP = 'UPDATE') THEN
+        INSERT INTO employee_history(date_update, salary_update, level_knowledge_udpdate, idt_employee) SELECT now(),new.salary,new.idt_level_knowledge, OLD.idt_employee;
+        RETURN NEW;
+    ELSIF (TG_OP = 'INSERT') THEN
+    
+	INSERT INTO employee_history(date_update, salary_update, level_knowledge_udpdate, idt_employee) SELECT now(),new.salary,new.idt_level_knowledge, NEW.idt_employee;
+		RETURN NEW;
+    END IF;
+		RETURN NULL; 
+END;
+$processa_emp_history$ language plpgsql;
+
+
+/* CRIACAO DA TRIGGER 
+* DEPOIS QUE QUALQUER COMANDO DML (INSERT, DELETE OU UPDATE) FOR EXECUTADO NA TABELA EMPLOYEE EXECUTE A FUNCAO processa_emp_history */
+CREATE TRIGGER emp_history
+	AFTER INSERT OR UPDATE OR DELETE ON employee
+	FOR EACH ROW EXECUTE PROCEDURE processa_emp_history();
+
+/* CASOS DE TESTE
+* CASO 1: 
+* CASO 2:
+* CASO 3: */
+
+CASO 1 - INSERT INTO Employee VALUES(30, 'Gabriel Lourenco', '2017-01-10', '40000.00', 13, 2, 5);
+
+CASO 2 - DELETE FROM employee WHERE name_employee = 'Cintia Silva';
+
+CASO 3 - UPDATE employee SET salary = 1500 WHERE name_employee ='Conceição Silva';
+
+

@@ -1,0 +1,29 @@
+/* PROCEDURE 
+* Visto que o SGBD Postgres nao possui implementacao para assercoes optamos por criar uma procedure
+* para que seja possível eleger um empregado como Manager do time, contudo, seguindo a regra de negócio 
+* de que sempre a pessoa com maior nível de conhecimento fica com o cargo de Manager do time. */
+
+CREATE PROCEDUTE Team_Ver (id_team int)
+LANGUAGE plpgsql
+AS $$
+      DECLARE c1 int;
+BEGIN
+      SELECT idt_employee INTO c1
+      FROM employee 
+      WHERE idt_team = id_team
+      ORDER BY idt_level_knowledge DESC
+      LIMIT 1;
+      INSERT INTO Manager VALUES(c1);
+END
+$$;
+
+/* CASOS DE TESTE
+* CASO 1: 
+* CASO 2:
+* CASO 3: */
+
+CASO 1 - CALL Team_Ver(1);
+
+CASO 2 - CALL Team_Ver(2);
+
+CASO 3 - CALL Team_Ver(3);

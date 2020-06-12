@@ -1,0 +1,20 @@
+/* VIEW - RESTRICAO DE SEGURANÇA
+* Esta visao servira para uma listagem de funcionarios da empresa no sistema, por conta disso, tem a necessidade de ocultar dados sensíveis,
+* como por exemplo salario, e outros dados únicos(como ID), que poderiam dar acesso a outros dados, por meio de juncoes, como por exemplo a 
+* lista de dependentes. */
+
+CREATE VIEW Infos_employee AS (
+	SELECT A.name_employee, B.name_knowledge,  A.name_team 
+	FROM (SELECT E.idt_level_knowledge, E.name_employee, T.name_team, T.idt_team 
+			FROM Employee as E
+			INNER JOIN Team as T ON E.idt_team = T.idt_team ) as A 
+			INNER JOIN level_knowledge as B ON A.idt_level_knowledge  = B.idt_knowledge 
+	ORDER BY A.name_team,  B.idt_knowledge
+);
+
+/* DISCUSSAO SOBRE A RELACAO CUSTO/BENEFICIO 
+
+Alem disso, eh util a criacao da view pois sera uma query muito requisitada, já que estará com um facil acesso no sistema.*/
+
+
+

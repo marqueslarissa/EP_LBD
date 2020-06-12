@@ -1,0 +1,177 @@
+INSERT INTO Level_knowledge(idt_knowledge,name_knowledge) VALUES('Estagiario');
+INSERT INTO Level_knowledge(idt_knowledge,name_knowledge) VALUES('Júnior 1');
+INSERT INTO Level_knowledge(idt_knowledge,name_knowledge) VALUES('Júnior 2');
+INSERT INTO Level_knowledge(idt_knowledge,name_knowledge) VALUES('Júnior 3');
+INSERT INTO Level_knowledge(idt_knowledge,name_knowledge) VALUES('Pleno 1');
+INSERT INTO Level_knowledge(idt_knowledge,name_knowledge) VALUES('Pleno 2');
+INSERT INTO Level_knowledge(idt_knowledge,name_knowledge) VALUES('Pleno 3');
+INSERT INTO Level_knowledge(idt_knowledge,name_knowledge) VALUES('Senior 1');
+INSERT INTO Level_knowledge(idt_knowledge,name_knowledge) VALUES('Senior 2');
+INSERT INTO Level_knowledge(idt_knowledge,name_knowledge) VALUES('Senior 3');
+INSERT INTO Level_knowledge(idt_knowledge,name_knowledge) VALUES('Especialista 1');
+INSERT INTO Level_knowledge(idt_knowledge,name_knowledge) VALUES('Especialista 2');
+INSERT INTO Level_knowledge(idt_knowledge,name_knowledge) VALUES('Especialista 3');
+
+INSERT INTO Project(name_project,date_create,date_final) VALUES('Projeto Blissey', '2020-01-01', '2020-12-14');
+INSERT INTO Project(name_project,date_create,date_final) VALUES('Projeto Chansey', '2019-03-12', '2020-01-12');
+INSERT INTO Project(name_project,date_create,date_final) VALUES('Projeto Articuno', '2018-03-12', '2019-05-20');
+INSERT INTO Project(name_project,date_create,date_final) VALUES('Projeto Charmander', '2020-03-12', '2021-02-16');
+INSERT INTO Project(name_project,date_create,date_final) VALUES('Projeto Arceus', '2020-04-10', '2022-01-09');
+
+INSERT INTO Sale(date_sale,amount_sale_project,idt_project) VALUES('2019-12-28',1000.00, 1);
+INSERT INTO Sale(date_sale,amount_sale_project,idt_project) VALUES('2019-01-03',3500.00, 2);
+INSERT INTO Sale(date_sale,amount_sale_project,idt_project) VALUES('2017-12-30',30000.00, 3);
+INSERT INTO Sale(date_sale,amount_sale_project,idt_project) VALUES('2020-01-19',5000.00, 4);
+INSERT INTO Sale(date_sale,amount_sale_project,idt_project) VALUES('2019-12-20',10000.00, 5);
+
+INSERT INTO Sale_history(date_update_sale,cost_sale_update,idt_sale,idt_project) VALUES('2019-12-28',1000.00, 1,1);
+INSERT INTO Sale_history(date_update_sale,cost_sale_update,idt_sale,idt_project) VALUES('2019-01-03',3500.00, 2,2);
+INSERT INTO Sale_history(date_update_sale,cost_sale_update,idt_sale,idt_project) VALUES('2017-12-30',30000.00, 3,3);
+INSERT INTO Sale_history(date_update_sale,cost_sale_update,idt_sale,idt_project) VALUES('2020-01-19',5000.00, 4,4);
+INSERT INTO Sale_history(date_update_sale,cost_sale_update,idt_sale,idt_project) VALUES('2019-12-20',10000.00, 5,5);
+
+INSERT INTO Financial_control(total_cost_sale,idt_sale) VALUES(1000.00, 1);
+INSERT INTO Financial_control(total_cost_sale,idt_sale) VALUES(3500.00, 2);
+INSERT INTO Financial_control(total_cost_sale,idt_sale) VALUES(30000.00, 3);
+INSERT INTO Financial_control(total_cost_sale,idt_sale) VALUES(5000.00, 4);
+INSERT INTO Financial_control(total_cost_sale,idt_sale) VALUES(10000.00, 5);
+
+INSERT INTO Financial_control(name_department) VALUES('Finanças');
+INSERT INTO Financial_control(name_department) VALUES('Tecnologia');
+INSERT INTO Financial_control(name_department) VALUES('Operacional');
+INSERT INTO Financial_control(name_department) VALUES('Relações Humanas');
+
+INSERT INTO Team(name_team,idt_project) VALUES('Alpha', 1);
+INSERT INTO Team(name_team,idt_project) VALUES('Beta', 2);
+INSERT INTO Team(name_team,idt_project) VALUES('Omega', 3);
+INSERT INTO Team(name_team,idt_project) VALUES('Delta', 4);
+INSERT INTO Team(name_team,idt_project) VALUES('Tau', 5);
+
+/* Foi ajustado o insert do campo salary pois estava string */
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Nelson Paulo Lorenzo Ramos', '2020-01-01', 1000.00, 1, 2, 1);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Lorena Tatiane Duarte', '2019-03-12', 3000.00, 2, 2, 1);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Julio Victor Porto', '2019-01-01', 7000.00, 5, 2, 1);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Teresinha Tereza Luzia Teixeira', '2018-12-28', 10000.00, 6, 2, 1);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Andreia Sara Maria Cavalcanti', '2017-04-10', 30000.00, 13, 2, 1);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Gustavo Rodrigo Leonardo Barbosa', '2020-01-01', 1000.00, 1, 2, 2);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Gabriel Pietro da Cruz', '2019-09-12', 7000.00, 3, 2, 2);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Clara Sônia Caldeira', '2018-12-28', 10000.00, 6, 2, 2);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Eliane Giovana Rita Silva', '2018-12-28', 10000.00, 6, 2, 2);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Antonella Natália Ayla Novaes', '2017-01-10', 30000.00, 13, 2, 2);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Alexandre Enzo Ferreira', '2019-03-12', 7000.00, 5, 2, 3);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Camila Sophia Cristiane Sales', '2019-03-12', 7000.00, 5, 2, 3);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Julia Isabelly Nunes', '2018-12-12', 10000.00, 6, 2, 3);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Rita Ana Melo', '2017-12-12', 25000.00, 12, 2, 3);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Iago João Vinicius da Cunha', '2017-01-10', 30000.00, 13, 2, 3);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Antônia Teresinha Isabel da Mata', '2019-12-28', 1000.00, 2, 2, 4);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Rodrigo Joaquim Breno Freitas', '2019-09-12', 7000.00, 3, 2, 4);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Daniel Severino Figueiredo', '2018-12-12', 10000.00, 6, 2, 4);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Cristiane Ana Drumond', '2018-01-10', 13000.00, 10, 2, 4);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Luiza Jaqueline Sales', '2018-01-10', 13000.00, 10, 2, 4);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Josefa Patrícia Peixoto', '2020-01-01', 1000.00, 1, 2, 5);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Francisca Kamilly Débora Assunção', '2019-05-12', 8000.00, 4, 2, 5);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Patrícia Sara Maya Gonçalves', '2019-03-12', 10000.00, 6, 2, 5);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Cristiane Vitória Vieira', '2018-01-10', 13000.00, 10, 2, 5);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Brenda Emanuelly Isabela da Conceição', '2017-01-10', 30000.00, 13, 2, 5);
+INSERT INTO Employee(name_employee,date_admission,salary,idt_level_knowledge,idt_department,idt_team) VALUES('Diego Jorge Santos', '2015-01-10', 90000.00, 13, 2);
+
+/* Foi ajustado o insert do campo salary_update pois estava string */
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2020-01-01', 1000.00, 1);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2019-03-12', 3000.00, 2);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2019-01-01', 7000.00, 5);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2018-12-28', 10000.00, 6);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2017-04-10', 30000.00, 13);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2020-01-01', 1000.00, 1);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2019-09-12', 7000.00, 3);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2018-12-28', 10000.00, 6);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2018-12-28', 10000.00, 6);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2017-01-10', 30000.00, 13);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2019-03-12', 7000.00, 51);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2019-03-12', 7000.00, 52);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2018-12-12', 10000.00, 6);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2017-12-12', 25000.00, 12);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2017-01-10', 30000.00, 13);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2019-12-28', 1000.00, 2);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2019-09-12', 7000.00, 3);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2018-12-12', 10000.00, 6);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2018-01-10', 13000.00, 10);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2018-01-10', 13000.00, 10);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2020-01-01', 1000.00, 1);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2019-05-12', 8000.00, 4);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2019-03-12', 10000.00, 6);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2018-01-10', 13000.00, 10);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2017-01-10', 30000.00, 13);
+INSERT INTO Employee_History(date_update,salary_update,level_knowledge_udpdate) VALUES('2015-01-10', 90000.00, 13);
+
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Betina Josefa Eduarda Corte Real', 1);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Davi Benedito André Melo', 1);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Helena Heloisa Almeida', 2);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Julio Tiago Manuel Araújo', 3);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Valentina Sandra Nina Dias', 3);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Cristiane Manuela Antonella Pires', 4);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Maya Vera Assis', 6);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Severino Iago Aparício', 6);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Kevin Jorge Benedito Galvão', 6);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Carolina Heloisa Caldeira', 7);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Diego Anderson Bernardes', 8);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Antonella Ana Santos', 8);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Emanuelly Esther Barbosa', 9);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Carolina Kamilly Carvalho', 9);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Marcela Isabela Cecília Melo', 10);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Emily Maitê Analu da Rocha', 11);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Diego Nicolas Murilo da Silva', 12);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Henrique Paulo Kaique Mendes', 12);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Augusto Breno Rodrigo da Costa', 14);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Davi Vicente Viana', 14);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Erick Joaquim Silva', 15);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Isadora Raquel Jéssica Moraes', 15);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Yuri Noah Thomas Cardoso', 16);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Caleb Kaique Luan Pires', 16);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Enzo José Monteiro', 17);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Raimundo Paulo Gabriel Pires', 17);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Alana Joana Emanuelly Jesus', 18);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Daniel Alexandre Viana', 18);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Anderson Geraldo Moura', 19);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Enrico Alexandre Rodrigues', 20);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Fernanda Juliana Viana', 21);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Amanda Isabelle Mariana Martins', 21);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Eduarda Lara da Mata', 22);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Larissa Letícia Benedita Moura', 22);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Lucca Augusto André Alves', 23);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Sophia Fernanda da Costa', 23);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Lorena Priscila Vitória da Rosa', 24);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Cauã Elias Fernando Assis', 25);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Iago Arthur Juan Carvalho', 25);
+INSERT INTO Dependent(name_dependent,idt_employee) VALUES('Sebastiana Eduarda Cecília Ferreira', 25);
+
+INSERT INTO Manager(fk_Employee_idt_employee) VALUES(5);
+INSERT INTO Manager(fk_Employee_idt_employee) VALUES(10);
+INSERT INTO Manager(fk_Employee_idt_employee) VALUES(15);
+INSERT INTO Manager(fk_Employee_idt_employee) VALUES(20);
+INSERT INTO Manager(fk_Employee_idt_employee) VALUES(25);
+
+INSERT INTO Analyst(fk_Employee_idt_employee) VALUES(1);
+INSERT INTO Analyst(fk_Employee_idt_employee) VALUES(2);
+INSERT INTO Analyst(fk_Employee_idt_employee) VALUES(3);
+INSERT INTO Analyst(fk_Employee_idt_employee) VALUES(6);
+INSERT INTO Analyst(fk_Employee_idt_employee) VALUES(7);
+INSERT INTO Analyst(fk_Employee_idt_employee) VALUES(8);
+INSERT INTO Analyst(fk_Employee_idt_employee) VALUES(11);
+INSERT INTO Analyst(fk_Employee_idt_employee) VALUES(12);
+INSERT INTO Analyst(fk_Employee_idt_employee) VALUES(13);
+INSERT INTO Analyst(fk_Employee_idt_employee) VALUES(16);
+INSERT INTO Analyst(fk_Employee_idt_employee) VALUES(17);
+INSERT INTO Analyst(fk_Employee_idt_employee) VALUES(18);
+INSERT INTO Analyst(fk_Employee_idt_employee) VALUES(21);
+INSERT INTO Analyst(fk_Employee_idt_employee) VALUES(22);
+INSERT INTO Analyst(fk_Employee_idt_employee) VALUES(23);
+
+INSERT INTO Especialist(area_knowledge,fk_Employee_idt_employee) VALUES('Mobile',4);
+INSERT INTO Especialist(area_knowledge,fk_Employee_idt_employee) VALUES('Front-End',9);
+INSERT INTO Especialist(area_knowledge,fk_Employee_idt_employee) VALUES('Back-End',14);
+INSERT INTO Especialist(area_knowledge,fk_Employee_idt_employee) VALUES('Infra',19);
+INSERT INTO Especialist(area_knowledge,fk_Employee_idt_employee) VALUES('BI',24);
+
+INSERT INTO Director(area,fk_Employee_idt_employee) VALUES('Desenvolvimento', 26);
+
+INSERT INTO Department_Management(idt_employee,idt_department) VALUES(5, 2);

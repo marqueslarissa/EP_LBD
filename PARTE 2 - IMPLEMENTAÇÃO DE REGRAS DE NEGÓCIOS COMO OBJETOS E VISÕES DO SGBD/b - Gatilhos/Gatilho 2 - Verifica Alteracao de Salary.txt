@@ -1,0 +1,40 @@
+/* TRIGGER
+* Essa triguer eh "engatilhada" toda vez que o campo salary (salario, tabela employee) eh modificado, 
+* seguindo a regra de negocio de que quando esse campo for atualizado ou se for inserido um novo registro 
+* com um valor menor do que o piso do salario da empresa, retorna uma mensagem de erro. Também ocorre a 
+* verificacao se o nome do usuario, que esta realizando a modificacao, é valido retornando assim uma mensagem 
+* de erro caso contrário e impedindo que esse campo (que eh considedado dado sensivel) seja alterado facilmente. */
+
+CREATE FUNCTION emp_check_sal() RETURNS trigger AS $emp_check_sal$
+BEGIN
+	IF NEW.name_employee IS  NULL THEN
+		RAISE EXCEPTION 'NOME FUNCIONARIO NAO PODE SER NULO';
+    END IF;
+    IF NEW.salary IS NULL THEN
+        RAISE EXCEPTION '% FUNCIONARIO NAO PODE TER SALARIO NULO', NEW.name_employee;
+    END IF;
+       
+    IF NEW.salary < 1000 THEN
+        RAISE EXCEPTION '% FUNCIONARIO NAO PODE TER SALARIO INFERIOR A R$ 10000', NEW.name_employee;
+    END IF;
+        RETURN NEW;
+END;
+$emp_check_sal$ LANGUAGE plpgsql;
+
+/* CRIACAO DA TRIGGER 
+* ANTES DE ALGUM COMANDO DML (SENDO INSERT OU UPDATE) FOR EXECUTADO NA TABELA EMPLOYEE EXECUTE A FUNCAO emp_check_sal */
+CREATE TRIGGER check_sal_emp 
+	BEFORE INSERT OR UPDATE ON employee
+    FOR EACH ROW EXECUTE procedure emp_check_sal();
+
+/* CASOS DE TESTE
+* CASO 1: 
+* CASO 2:
+* CASO 3: */
+
+CASO 1 - UPDATE employee set salary = 3500 where NAME_EMPLOYEE = 'Nelson Paulo Lorenzo Ramos';
+  
+CASO 2 - INSERT INTO Employee VALUES(32, 'RAFAEL VIERIA DE LIMA', '2019-01-10', '50000.00', 6, 2, 1);
+   
+CASO 3- INSERT INTO Employee VALUES(33, 'MARCIO OLIVEIRA', '2020-01-10', '900.00', 1, 2, 1);
+   

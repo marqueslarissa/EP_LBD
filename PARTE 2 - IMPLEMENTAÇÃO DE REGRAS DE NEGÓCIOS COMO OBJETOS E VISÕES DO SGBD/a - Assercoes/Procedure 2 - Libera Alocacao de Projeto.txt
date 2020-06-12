@@ -1,0 +1,30 @@
+/* PROCEDURE 
+* Visto que o SGBD Postgres nao possui implementacao para assercoes optamos por criar uma procedure
+* com o intuito de finalizar um projeto, colocando a data final automaticamente seguindo a regra de negocio
+* de sempre que um projeto for finalizado o time, que participava destem fica com o idt_project nulo, 
+* indicando que não está vinculado a nenhum projeto, podendo assim ser alocado para outro projeto. */
+
+CREATE PROCEDURE Finish_project (id_project int)
+LANGUAGE SQL
+AS $$
+
+UPDATE team
+SET idt_project = NULL
+WHERE idt_project = id_project;
+
+UPDATE project
+SET date_final = current_timestamp
+WHERE idt_project = id_project;
+
+$$;
+
+/* CASOS DE TESTE
+* CASO 1: 
+* CASO 2:
+* CASO 3: */
+
+CASO 1 - CALL Finish_project(1);
+
+CASO2 - CALL Finish_project(2);
+
+CASO 3 - CALL Finish_project(3);

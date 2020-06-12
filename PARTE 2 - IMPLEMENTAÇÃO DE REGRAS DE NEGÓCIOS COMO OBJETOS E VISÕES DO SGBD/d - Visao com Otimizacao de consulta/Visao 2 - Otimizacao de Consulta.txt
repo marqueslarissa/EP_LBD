@@ -1,0 +1,25 @@
+/* VIEW - RESTRICAO DE SEGURANÇA
+* Esta visao servira para otimizar uma consulta que gera um relatorio retornando uma listagem de funcionarios da empresa no sistema,
+* bem como suas informacoes. Por conta disso, tem a necessidade de realizar juncoes para que seja possivel retornar um relatorio mais completo
+* possivel com as informacoes presentes no nosso modelo. */
+
+CREATE VIEW relatorio_otimizado as (
+	SELECT E.name_employee, E.date_admission, E.salary,L.name_knowledge, D.name_dependent, DEP.name_department, t.name_team, P.name_project
+	FROM employee AS E
+	LEFT JOIN level_knowledge AS L ON L.idt_knowledge = E.idt_level_knowledge
+	LEFT JOIN (SELECT name_dependent , idt_employee
+				FROM dependent ) AS D on d.idt_employee = e.idt_employee
+	LEFT JOIN department AS DEP on dep.idt_department = e.idt_department 
+	LEFT JOIN team as T on T.idt_team = e.idt_team 
+	LEFT JOIN (SELECT name_project , idt_project 
+				FROM project ) AS P on p.idt_project = t.idt_project 
+	ORDER BY 1,5
+ ); 
+
+/* DISCUSSAO SOBRE A RELACAO CUSTO/BENEFICIO 
+
+Alem disso, eh util a criacao da view pois sera uma query muito requisitada, já que estará com um facil acesso no sistema.*/
+
+
+
+
