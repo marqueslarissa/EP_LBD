@@ -3,7 +3,7 @@
 * para que seja possível eleger um empregado como Manager do time, contudo, seguindo a regra de negócio 
 * de que sempre a pessoa com maior nível de conhecimento fica com o cargo de Manager do time. */
 
-CREATE PROCEDUTE Team_Ver (id_team int)
+CREATE PROCEDURE Team_Ver (id_team int)
 LANGUAGE plpgsql
 AS $$
       DECLARE c1 int;
