@@ -19,12 +19,23 @@ WHERE idt_project = id_project;
 $$;
 
 /* CASOS DE TESTE
-* CASO 1: 
-* CASO 2:
-* CASO 3: */
 
-CASO 1 - CALL Finish_project(1);
+CASO 1:
+	Neste caso estamos concluindo o projeto de id = 1, fazendo com que a data final deste ficasse como a data atual e o time em questão(time 1) 
+ficasse com o campo de idt_project nulo, podendo assim ser alocado para um novo projeto.
 
-CASO2 - CALL Finish_project(2);
+CALL Finish_project(1);
 
-CASO 3 - CALL Finish_project(3);
+CASO2:
+	Neste caso estamos concluindo o projeto de id = 2, fazendo com que a data final deste ficasse como a data atual e o time em questão(time 2) 
+ficasse com o campo de idt_project nulo, podendo assim ser alocado para um novo projeto.
+
+CALL Finish_project(2);
+
+CASO 3:
+	Neste caso estamos concluindo o projeto de id = 3, fazendo com que a data final deste ficasse como a data atual e o time em questão(time 3) 
+ficasse com o campo de idt_project nulo, podendo assim ser alocado para um novo projeto.
+
+CALL Finish_project(3);
+
+*/
