@@ -1,0 +1,53 @@
+/* TRIGGER
+* Essa triguer eh "engatilhada" toda vez que for inserido um registo na tabela Employee, 
+* seguindo a regra de negocio de que quando o campo idt_level_knowledge, que identifica o nivel de conhecimento,
+* for menor que 6 então "encaixa" como um "analista", sendo inserido na tabela Analyst; 
+* quando for maior que 5 e menor que 13 então se "encaixa" como um "especialista", sendo inserido na tabela Especialist;
+* e quando for igual a 13 se "encaixa" como um "diretor", sendo então inserido na tabela Director;
+* se esses casos nao forem verdadeiros, entao diz respeito a um gerente, sendo inserido na tabela Manager.
+* A regra de negocio tambem inclui a area de Director e Manager como "Experiencia" indicando que o funcionario esta em periodo de experiencia. */
+
+CREATE OR REPLACE FUNCTION verifica_nivel() RETURNS TRIGGER AS $verifica_nivel$ 
+BEGIN 
+	IF (NEW.idt_level_knowledge <6) THEN
+		INSERT INTO analyst VALUES(NEW.idt_employee);
+
+	ELSIF (NEW.idt_level_knowledge > 5 AND NEW.idt_level_knowledge < 13) THEN
+		INSERT INTO especialist VALUES('Experiencia',NEW.idt_employee);
+
+    ELSIF (NEW.idt_level_knowledge = 13) THEN
+        INSERT INTO director VALUES('Experiencia',NEW.idt_employee);
+	ELSE
+		INSERT INTO manager VALUES (NEW.idt_employee);
+    END IF;
+        RETURN NULL; 
+END;
+$verifica_nivel$ 
+language plpgsql;
+
+
+/* CRIACAO DA TRIGGER 
+* ANTES DE ALGUM COMANDO DML (SENDO INSERT, NO CASO) FOR EXECUTADO NA TABELA EMPLOYEE EXECUTE A FUNCAO verifica_nivel_employee */
+CREATE TRIGGER verifica_nivel_employee
+    AFTER INSERT ON employee
+    FOR EACH ROW EXECUTE PROCEDURE verifica_nivel();
+
+/* CASOS DE TESTE */
+
+/* CASO 1: 
+*	Insere na tabela employee um registro com nivel de conhecimento = 6, sendo entao um Especialista.*/
+
+INSERT INTO Employee VALUES(DEFAULT, 'Rafael Vieira de Lima', '2019-01-10', 50000.00, 6, 2, 1);
+SELECT * FROM especialist WHERE fk_employee_idt_employee = (SELECT idt_employee FROM employee WHERE name_employee = 'Rafael Vieira de Lima');
+
+/* CASO 2: 
+* Insere na tabela employee um registro com nivel de conhecimento = 13, sendo entao um Diretor.*/
+
+INSERT INTO Employee VALUES(DEFAULT, 'Michael Jackson', '2019-01-10', 900000.00, 13, 2, 3);
+SELECT * FROM director WHERE fk_employee_idt_employee = (SELECT idt_employee FROM employee WHERE name_employee = 'Michael Jackson');
+
+/* CASO 3: 
+* Insere na tabela employee um registro com nivel de conhecimento = 1, sendo entao um Estagiario e inserido na tabela Analyst.*/    
+
+INSERT INTO Employee VALUES(DEFAULT, 'Ian Drop Table', '2019-01-10', 1000.00, 1, 2, 1);
+SELECT * FROM analyst WHERE fk_employee_idt_employee = (SELECT idt_employee FROM employee WHERE name_employee = 'Ian Drop Table');
