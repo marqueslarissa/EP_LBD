@@ -1,0 +1,2 @@
+/* codigo sql EXPLAIN
+* QUERY 3 */

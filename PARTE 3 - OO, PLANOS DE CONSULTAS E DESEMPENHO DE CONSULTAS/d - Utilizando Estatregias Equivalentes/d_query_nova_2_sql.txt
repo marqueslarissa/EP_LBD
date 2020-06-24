@@ -1,0 +1,2 @@
+/* codigo sql EXPLAIN
+* QUERY NOVA 2 */
