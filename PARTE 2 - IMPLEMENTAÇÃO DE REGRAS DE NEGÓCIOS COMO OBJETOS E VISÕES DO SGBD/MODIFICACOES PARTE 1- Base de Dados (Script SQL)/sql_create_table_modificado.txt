@@ -1,6 +1,6 @@
   
 CREATE TABLE Level_Knowledge (
-	idt_knowledge INT IDENTITY(1,1) PRIMARY KEY,
+	idt_level_knowledge INT IDENTITY(1,1) PRIMARY KEY,
 	name_knowledge VARCHAR
 );
 
@@ -43,6 +43,7 @@ CREATE TABLE Especialist (
 );
 
 CREATE TABLE Analyst (
+       
 	fk_Employee_idt_employee INT IDENTITY(1,1) PRIMARY KEY
 );
 

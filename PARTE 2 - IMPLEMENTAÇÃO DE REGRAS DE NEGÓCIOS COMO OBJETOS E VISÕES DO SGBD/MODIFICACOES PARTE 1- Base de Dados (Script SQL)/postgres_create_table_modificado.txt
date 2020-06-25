@@ -1,5 +1,5 @@
 CREATE TABLE Level_Knowledge (
-	idt_knowledge SERIAL PRIMARY KEY,
+	idt_level_knowledge SERIAL PRIMARY KEY,
 	name_knowledge VARCHAR
 );
 
