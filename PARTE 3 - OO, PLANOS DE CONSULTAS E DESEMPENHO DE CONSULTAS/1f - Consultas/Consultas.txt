@@ -4,8 +4,8 @@ FROM (SELECT E.idt_level_knowledge, E.name_employee, E.idt_employee, T.name_team
 		   FROM Employee as E
 		   INNER JOIN Team as T
 		   ON E.idt_team  = T.idt_team ) as A INNER JOIN level_knowledge as B
-		   ON A.idt_level_knowledge  = B.idt_knowledge 
-		   ORDER BY A.name_team,  B.idt_knowledge
+		   ON A.idt_level_knowledge  = B.idt_level_knowledge 
+		   ORDER BY A.name_team,  B.idt_level_knowledge
 
 --Query 2 selecionar a média salarial dos gestores
 SELECT AVG(E.salary)
@@ -24,32 +24,3 @@ SELECT E.name_employee
 FROM Employee E 
 LEFT JOIN (SELECT idt_employee, COUNT (*) as qtDependent FROM Dependent GROUP BY idt_employee) D ON E.idt_employee = D.idt_employee
  WHERE D.qtDependent > 2
-
-
- 
- 
- 
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
