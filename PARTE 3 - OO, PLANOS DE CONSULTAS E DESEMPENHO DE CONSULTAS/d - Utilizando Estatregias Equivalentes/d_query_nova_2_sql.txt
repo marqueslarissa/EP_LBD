@@ -1,2 +1,6 @@
 /* codigo sql EXPLAIN
 * QUERY NOVA 2 */
+
+SELECT AVG(E.salary)
+FROM employee as E RIGHT JOIN manager as M
+ON E.idt_employee = M.fk_Employee_idt_employee

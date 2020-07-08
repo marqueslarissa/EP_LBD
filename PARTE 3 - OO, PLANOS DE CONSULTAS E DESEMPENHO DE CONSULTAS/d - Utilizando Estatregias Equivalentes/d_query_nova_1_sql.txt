@@ -1,2 +1,6 @@
 /* codigo sql EXPLAIN
 * QUERY NOVA 1 */
+
+SELECT AVG(E.salary)
+FROM employee as E NATURAL JOIN manager as M
+WHERE E.idt_employee = M.fk_Employee_idt_employee

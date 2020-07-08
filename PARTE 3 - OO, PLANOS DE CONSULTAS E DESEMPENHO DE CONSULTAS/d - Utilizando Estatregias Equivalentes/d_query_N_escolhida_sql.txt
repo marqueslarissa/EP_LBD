@@ -1,2 +1,7 @@
 /* codigo sql EXPLAIN
 * QUERY ESCOLHIDA PARA UTILIZAR ESTRATEGIAS EQUIVALENTES */
+
+--Query 2 selecionar a média salarial dos gestores
+SELECT AVG(E.salary)
+FROM employee as E NATURAL JOIN team as T NATURAL JOIN manager as M
+WHERE E.idt_employee = M.fk_Employee_idt_employee

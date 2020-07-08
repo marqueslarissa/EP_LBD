@@ -1,2 +1,9 @@
 /* codigo sql EXPLAIN
 * QUERY UTILIZANDO A ESTRATEGIA DE SUBCONSULTA */
+
+SELECT salary
+FROM employee
+WHERE salary >= ALL(SELECT salary
+		FROM employee
+		WHERE  date_admission > '01-01-2019')AND 
+ date_admission > '01-01-2019'

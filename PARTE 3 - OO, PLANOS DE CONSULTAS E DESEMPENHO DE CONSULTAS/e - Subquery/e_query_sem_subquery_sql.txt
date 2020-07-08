@@ -1,2 +1,6 @@
 /* codigo sql EXPLAIN
 * QUERY REESCRITA SEM UTILIZAR A ESTRATEGIA DE SUBQUERY */
+
+SELECT MAX(salary) AS salary
+FROM employee 
+WHERE date_admission > '01-01-2019'
