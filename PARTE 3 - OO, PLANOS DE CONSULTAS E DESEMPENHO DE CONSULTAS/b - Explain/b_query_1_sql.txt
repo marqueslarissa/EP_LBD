@@ -1,2 +1,11 @@
 /* codigo sql EXPLAIN
+
 * QUERY 1 */
+
+explain SELECT A.idt_employee, A.name_employee, B.name_knowledge ,A.idt_team,  A.name_team 
+FROM (SELECT E.idt_level_knowledge, E.name_employee, E.idt_employee, T.name_team, T.idt_team 
+		   FROM Employee as E
+		   INNER JOIN Team as T
+		   ON E.idt_team  = T.idt_team ) as A INNER JOIN level_knowledge as B
+		   ON A.idt_level_knowledge  = B.idt_level_knowledge 
+		   ORDER BY A.name_team,  B.idt_level_knowledge

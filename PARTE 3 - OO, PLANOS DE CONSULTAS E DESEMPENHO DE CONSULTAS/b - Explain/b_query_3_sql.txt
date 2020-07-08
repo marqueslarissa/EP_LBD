@@ -1,2 +1,7 @@
 /* codigo sql EXPLAIN
 * QUERY 3 */
+explain SELECT T.name_team, P.name_project, S.amount_sale_project
+FROM team as T NATURAL JOIN sale as S NATURAL JOIN project as P
+WHERE T.idt_project = P.idt_project AND P.idt_project = S.idt_project
+ORDER BY S.amount_sale_project DESC
+LIMIT 1

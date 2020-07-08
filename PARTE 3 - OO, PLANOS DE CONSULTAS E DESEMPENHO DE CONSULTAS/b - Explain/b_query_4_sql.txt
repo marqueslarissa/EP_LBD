@@ -1,2 +1,6 @@
 /* codigo sql EXPLAIN
 * QUERY 4 */
+explain SELECT E.name_employee
+FROM Employee E 
+LEFT JOIN (SELECT idt_employee, COUNT (*) as qtDependent FROM Dependent GROUP BY idt_employee) D ON E.idt_employee = D.idt_employee
+ WHERE D.qtDependent > 2
