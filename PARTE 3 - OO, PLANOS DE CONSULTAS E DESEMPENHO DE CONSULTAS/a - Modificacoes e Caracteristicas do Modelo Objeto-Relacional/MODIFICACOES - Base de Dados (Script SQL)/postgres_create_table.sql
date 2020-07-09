@@ -1,3 +1,12 @@
+/* POSTGRES - ALTERACAO DO MODELO: CRIA BANCO
+* Tabelas: 
+*	Level_Knowledge - alteracao do campo idt_knowledge para idt_level_knowledge;
+*	Sale_History e Sale - remocao do campo idt_project pois nao ha relacionamento;
+*	Department_Management - remocao do campo idt_employee pois nao ha relacionamento;
+						  - adicao da FK idt_department;
+*	Employee - remocao do campo idt_team pois nao ha relacionamento;
+*/
+
 CREATE TABLE Level_Knowledge (
 	idt_level_knowledge SERIAL PRIMARY KEY,
 	name_knowledge VARCHAR
@@ -10,7 +19,7 @@ CREATE TABLE Employee (
 	salary DECIMAL,
 	idt_level_knowledge INTEGER,
 	idt_department INTEGER,
-	idt_team INTEGER
+--	idt_team INTEGER
 );
 
 CREATE TABLE Employee_History (
@@ -61,8 +70,8 @@ CREATE TABLE Project(
 CREATE TABLE Sale (
 	idt_sale SERIAL PRIMARY KEY,
 	date_sale DATE,
-	amount_sale_project DECIMAL, -- Adequacao do data type para entrar em concordancia com o modelo. Tipo anterior: INTEGER.  
-	idt_project INTEGER
+	amount_sale_project DECIMAL,
+--	idt_project INTEGER
 );
 
 CREATE TABLE Sale_History (
@@ -70,12 +79,12 @@ CREATE TABLE Sale_History (
 	date_update_sale DATE,
 	cost_sale_update DECIMAL,
 	idt_sale INTEGER,
-	idt_project INTEGER
+--	idt_project INTEGER
 );
 
 CREATE TABLE Financial_Control (
 	idt_financial_control SERIAL PRIMARY KEY,
-	total_cost_sale DECIMAL, -- Adequacao do data type para entrar em concordancia com o modelo. Tipo anterior: INTEGER. 
+	total_cost_sale DECIMAL,
 	idt_sale INTEGER
 );
 
@@ -86,7 +95,7 @@ CREATE TABLE Department (
 
 CREATE TABLE Department_Management (
 	idt_dpt_management SERIAL PRIMARY KEY,
-	idt_employee INTEGER,
+--	idt_employee INTEGER,
 	idt_department INTEGER
 );
 
@@ -98,11 +107,6 @@ ON DELETE RESTRICT;
 ALTER TABLE Employee ADD CONSTRAINT FK_Employee_3
 FOREIGN KEY (idt_department)
 REFERENCES Department;
-
-/* Essa FK foi retirada pois na parte 2 do trabalho foi criada uma trigger que uma satisfaz o objetivo utilizando somente a PK*/
---ALTER TABLE Employee_History ADD CONSTRAINT FK_Employee_History_2
---FOREIGN KEY (idt_employee)
---REFERENCES Employee;
 
 ALTER TABLE Dependent ADD CONSTRAINT FK_Dependent_2
 FOREIGN KEY (idt_employee)
@@ -128,35 +132,42 @@ FOREIGN KEY (fk_Employee_idt_employee)
 REFERENCES Employee (idt_employee)
 ON DELETE CASCADE;
 
+/*
 ALTER TABLE Sale ADD CONSTRAINT FK_Sale_2
 FOREIGN KEY (idt_project)
 REFERENCES Project;
+*/
 
 ALTER TABLE Sale_History ADD CONSTRAINT FK_Sale_History_2
 FOREIGN KEY (idt_sale)
 REFERENCES Sale;
 
+/*
 ALTER TABLE Sale_History ADD CONSTRAINT FK_Sale_History_1
 FOREIGN KEY (idt_project)
 REFERENCES Project;
+*/
 
 ALTER TABLE Financial_Control ADD CONSTRAINT FK_Financial_Control_2
 FOREIGN KEY (idt_sale)
 REFERENCES Sale;
 
+/*
 ALTER TABLE Department_Management ADD CONSTRAINT FK_department_Management_2
 FOREIGN KEY (idt_department)
 REFERENCES Department;
+*/
 
 ALTER TABLE Team ADD CONSTRAINT FK_project
 FOREIGN KEY (idt_project)
 REFERENCES Project;
 
+/*
 ALTER TABLE Department_Management ADD CONSTRAINT FK_Employee_2
 FOREIGN KEY (idt_employee)
 REFERENCES Employee;
-
+*/
 
 ALTER TABLE Department_Management ADD CONSTRAINT FK_Department
-FOREIGN KEY (idt_employee)
-REFERENCES Employee;
+FOREIGN KEY (idt_department)
+REFERENCES Department_Management;
