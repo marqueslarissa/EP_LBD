@@ -117,14 +117,15 @@ CREATE TABLE Project(
 	date_final DATE
 );
 
-/*	Sale_History e Sale - remocao do campo idt_project pois nao ha relacionamento;*/
+
 CREATE TABLE Sale (
 	idt_sale SERIAL PRIMARY KEY,
 	date_sale DATE,
-	amount_sale_project DECIMAL
---	idt_project INTEGER
+	amount_sale_project DECIMAL,
+    idt_project INTEGER
 );
 
+/*	Sale_History  - remocao do campo idt_project pois nao ha relacionamento;*/
 CREATE TABLE Sale_History (
 	idt_sale_history SERIAL PRIMARY KEY,
 	date_update_sale DATE,
@@ -223,17 +224,18 @@ FOREIGN KEY (idt_level_knowledge)
 REFERENCES Level_Knowledge (idt_level_knowledge)
 ON UPDATE CASCADE ON DELETE RESTRICT;
 
-/*	Sale_History e Sale - remocao do campo idt_project pois nao ha relacionamento;*/
-/*
+
+
 ALTER TABLE Sale ADD CONSTRAINT FK_Sale_2
 FOREIGN KEY (idt_project)
-REFERENCES Project;
-*/
+REFERENCES Project (idt_project);
+
 
 ALTER TABLE Sale_History ADD CONSTRAINT FK_Sale_History_1
 FOREIGN KEY (idt_sale)
 REFERENCES Sale (idt_sale);
 
+/*	Sale_History - remocao do campo idt_project pois nao ha relacionamento;*/
 /*
 ALTER TABLE Sale_History ADD CONSTRAINT FK_Sale_History_1
 FOREIGN KEY (idt_project)
