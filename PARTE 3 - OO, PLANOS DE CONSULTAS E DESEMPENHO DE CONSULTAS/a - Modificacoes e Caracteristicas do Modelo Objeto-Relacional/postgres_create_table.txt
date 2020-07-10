@@ -211,7 +211,7 @@ ON DELETE CASCADE;
 */
 
 /* Especialist - adicao da chave estrangeira "idt_level_knowledge"; */
-ALTER TABLE Analyst ADD CONSTRAINT FK_Especialist_4
+ALTER TABLE Especialist ADD CONSTRAINT FK_Especialist_4
 FOREIGN KEY (idt_level_knowledge)
 REFERENCES Level_Knowledge (idt_level_knowledge)
 ON UPDATE CASCADE ON DELETE CASCADE;
