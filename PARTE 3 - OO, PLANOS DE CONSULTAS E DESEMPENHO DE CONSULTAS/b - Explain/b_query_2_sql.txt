@@ -11,7 +11,7 @@ WHERE E.idt_employee = M.fk_Employee_idt_employee;
 *	Apos implementacao de heranca no artefato A vimos a possibilidade de realizar a media salarial para cada um, nao
 * somente para gestores.
 */
-SELECT	COUNT (d.idt_employee) as qty_Director, AVG(d.salary) as mean_salary_Director,
+explain SELECT	COUNT (d.idt_employee) as qty_Director, AVG(d.salary) as mean_salary_Director,
 		COUNT (m.idt_employee) as qty_Manager, AVG(m.salary) as mean_salary_Manager,
 		COUNT (es.idt_employee) as qty_Especialist, AVG(es.salary) as mean_salary_Especialist,
 		COUNT (a.idt_employee) as qty_Analyst, AVG(a.salary) as mean_salary_Analyst

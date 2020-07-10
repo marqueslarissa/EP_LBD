@@ -1,7 +1,8 @@
-/* codigo sql EXPLAIN */
+/* codigo sql EXPLAIN 
+* QUERY 1 */
 
 /* antes: Query 1 seleciona o funcionario, seu ID, seu nivel de conhecimento e seu time, assim como o ID do seu time */
-SELECT A.idt_employee, A.name_employee, B.name_knowledge ,A.idt_team,  A.name_team 
+explain SELECT A.idt_employee, A.name_employee, B.name_knowledge ,A.idt_team,  A.name_team 
 FROM (
 	SELECT E.idt_level_knowledge, E.name_employee, E.idt_employee, T.name_team, T.idt_team 
 	FROM Employee as E
