@@ -39,10 +39,11 @@ INSERT INTO Financial_control VALUES(DEFAULT,30000.00, 3);
 INSERT INTO Financial_control VALUES(DEFAULT,5000.00, 4);
 INSERT INTO Financial_control VALUES(DEFAULT,10000.00, 5);
 
-INSERT INTO Department VALUES(DEFAULT, 'Finanças');
-INSERT INTO Department VALUES(DEFAULT, 'Tecnologia');
-INSERT INTO Department VALUES(DEFAULT, 'Operacional');
-INSERT INTO Department VALUES(DEFAULT, 'Relações Humanas');
+INSERT INTO Department VALUES(DEFAULT, 'Finanças', 3);
+INSERT INTO Department VALUES(DEFAULT, 'Tecnologia', 5);
+INSERT INTO Department VALUES(DEFAULT, 'Operacional', 2);
+INSERT INTO Department VALUES(DEFAULT, 'Comercial', 4);
+INSERT INTO Department VALUES(DEFAULT, 'Relações Humanas', 1);
 
 INSERT INTO Team VALUES(DEFAULT, 'Alpha', 1);
 INSERT INTO Team VALUES(DEFAULT, 'Beta', 2);
@@ -77,8 +78,8 @@ INSERT INTO Dependent VALUES(DEFAULT, 'Sebastiana Eduarda Cecília Ferreira');
 INSERT INTO Manager VALUES(DEFAULT,'Andreia Sara Maria Cavalcanti', '2017-04-10', 30000.00, 1, '{"mobile":"+551194394419","landline":"+551142632872"}', ('Rua Uruguai 1952', 'Santana de Parnaíba', 'São Paulo', '06502-300'), 1, 15000.00, 'VolksWagen FOX, BUC-0580');
 INSERT INTO Manager VALUES(DEFAULT, 'Antonella Natália Ayla Novaes', '2017-01-10', 30000.00, 2, '{"mobile":"+551194447769","landline":"+551142220172","comercial":"+5511128527281"}', ('Rua Maria Alves Margarida 1509', 'Osasco', 'São Paulo', '06236-202'), 2, 15000.00, 'Ford EcoSport, FPR-1046');
 INSERT INTO Manager VALUES(DEFAULT, 'Iago João Vinicius da Cunha', '2017-01-10', 30000.00, 3, '{"landline":"+551142678548","comercial":"+5511983727326"}', ('Travessa Quatro 906', 'Barra Mansa', 'Rio de Janeiro', '27333-380'), 3, 15000.00, 'Fiat Stilo, FWQ-3477');
-INSERT INTO Manager VALUES(DEFAULT, 'Luiza Jaqueline Sales', '2018-01-10', 13000.00, 4, '{"mobile":"+551194983769","comercial":"+5511983788611"}', ('Rua Novo México 788', 'São Paulo', 'São Paulo', '04340-030'), 6500.00, 4, 'Renault Megane, CQO-1552');
-INSERT INTO Manager VALUES(DEFAULT, 'Brenda Emanuelly Isabela da Conceição', '2017-01-10', 15000.00, 2, '{"mobile":"+551194309154"}', ('Rua Oliveiras 828', 'Jundiaí', 'São Paulo', '13211-528'), null, 7500.00, 'VolksWagen up!, DEL-4898');
+INSERT INTO Manager VALUES(DEFAULT, 'Luiza Jaqueline Sales', '2018-01-10', 13000.00, 4, '{"mobile":"+551194983769","comercial":"+5511983788611"}', ('Rua Novo México 788', 'São Paulo', 'São Paulo', '04340-030'), 4, 6500.00, 'Renault Megane, CQO-1552');
+INSERT INTO Manager VALUES(DEFAULT, 'Brenda Emanuelly Isabela da Conceição', '2017-01-10', 15000.00, 5, '{"mobile":"+551194309154"}', ('Rua Oliveiras 828', 'Jundiaí', 'São Paulo', '13211-528'), null, 7500.00, 'VolksWagen up!, DEL-4898');
 
 INSERT INTO Analyst VALUES(DEFAULT, 'Nelson Paulo Lorenzo Ramos', '2020-01-01', 1000.00, 2, '{"mobile":"+551194398769","landline":"+551142678172","comercial":"+5511983727281"}', ('Rua Vinte de Agosto 1081', 'São Bernardo do Campo', 'São Paulo', '09770-380'), 6, 1, 'Universidade de São Paulo', 'Sistemas de Informação');
 INSERT INTO Analyst VALUES(DEFAULT, 'Lorena Tatiane Duarte', '2019-03-12', 3000.00, 2, '{"mobile":"+551194482769","comercial":"+5511980317281"}', ('Avenida Santo Antônio 484', 'Osasco', 'São Paulo', '06083-200'), 7, 2, 'FATEC', 'Análise e Desenvolvimento de Sistemas');

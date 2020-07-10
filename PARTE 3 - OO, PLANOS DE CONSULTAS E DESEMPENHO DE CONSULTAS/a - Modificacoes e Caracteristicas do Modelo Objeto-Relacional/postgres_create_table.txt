@@ -139,9 +139,11 @@ CREATE TABLE Financial_Control (
 	idt_sale INTEGER
 );
 
+/* Department - adiciona a chave estrangeira "idt_project" para voltar ao contexto do modelo */
 CREATE TABLE Department (
 	idt_department SERIAL PRIMARY KEY,
-	name_department VARCHAR
+	name_department VARCHAR,
+	idt_project INTEGER
 );
 
 /*	Department_Management - remocao do campo idt_employee pois nao ha relacionamento; */
@@ -256,3 +258,9 @@ ALTER TABLE Department_Management ADD CONSTRAINT FK_Employee_2
 FOREIGN KEY (idt_employee)
 REFERENCES Employee (idt_employee);
 */
+
+/* Department - adiciona a chave estrangeira "idt_project" para voltar ao contexto do modelo */
+ALTER TABLE Department ADD CONSTRAINT FK_Department_1
+FOREIGN KEY (idt_project)
+REFERENCES Project (idt_project)
+ON UPDATE CASCADE ON DELETE CASCADE;
