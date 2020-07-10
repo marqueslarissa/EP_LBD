@@ -1,2 +1,0 @@
-/* codigo sql EXPLAIN
-* ALTERACAO 2: QUERY 2 */
