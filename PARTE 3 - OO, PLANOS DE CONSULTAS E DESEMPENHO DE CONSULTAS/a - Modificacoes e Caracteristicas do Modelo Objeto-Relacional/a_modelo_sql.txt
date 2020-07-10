@@ -1,4 +1,0 @@
-/* codigo sql do modelo com as caracteristicas 
-* > Atributo Composto/Atributo Multivalorado
-* > Utilizar "Tipos de Referencia"
-* > Heranca */
