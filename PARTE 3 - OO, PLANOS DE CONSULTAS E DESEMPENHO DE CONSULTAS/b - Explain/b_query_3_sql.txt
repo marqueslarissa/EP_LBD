@@ -1,7 +1,27 @@
 /* codigo sql EXPLAIN
 * QUERY 3 */
+
+/* antes: Query 3 para achar o time que obteve maior venda de projeto */
 explain SELECT T.name_team, P.name_project, S.amount_sale_project
-FROM team as T NATURAL JOIN sale as S NATURAL JOIN project as P
+FROM team as T 
+NATURAL JOIN sale as S 
+NATURAL JOIN project as P
 WHERE T.idt_project = P.idt_project AND P.idt_project = S.idt_project
 ORDER BY S.amount_sale_project DESC
-LIMIT 1
+LIMIT 1;
+
+/* depois: Query 3 seleciona o time que obteve a maior venda de projeto;
+*	Decidimos manter com o objetivo principal da consulta, e, apenas adequamos ao novo modelo, substituindo o 
+* "ORDER BY" pelo "GROUP BY" e também adicionando o HAVING MAX
+*
+*/
+SELECT T.name_team, P.name_project, MAX(S.amount_sale_project)
+FROM team as T 
+NATURAL JOIN sale as S 
+NATURAL JOIN project as P
+WHERE T.idt_project = P.idt_project AND P.idt_project = S.idt_project
+GROUP BY T.name_team, P.name_project
+HAVING MAX(S.amount_sale_project)>=ALL(
+	SELECT amount_sale_project
+	FROM sale
+	);
