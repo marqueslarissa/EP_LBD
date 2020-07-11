@@ -1,0 +1,10 @@
+/* codigo sql 
+* QUERY 1 */
+
+/*QUERY 1: CRIAÇÃO DE ÍNDICES*/
+
+CREATE INDEX indicePrimeiraQuery
+ ON Employee (idt_employee, name_employee);
+ 
+ CREATE INDEX indicePrimeiraQueryTeam
+ ON Team (idt_team, name_team);

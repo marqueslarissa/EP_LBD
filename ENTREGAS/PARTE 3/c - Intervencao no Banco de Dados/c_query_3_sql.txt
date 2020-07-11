@@ -1,0 +1,10 @@
+/* codigo sql
+* QUERY 3 */
+
+/* QUERY 3: CRIAÇÃO DE ÍNDICES */
+
+CREATE INDEX indiceTerceiraQuery
+ON sale (amount_sale_project);
+ 
+CREATE INDEX indiceTerceiraQueryProject
+ON project (idt_project);

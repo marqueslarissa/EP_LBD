@@ -1,0 +1,10 @@
+/* codigo sql EXPLAIN
+* QUERY 4 */
+
+/* QUERY 4: CRIAÇÃO DE ÍNDICES */
+
+CREATE INDEX indiceQuartaQuery
+ON Dependent (name_dependent);
+ 
+CREATE INDEX indiceQuartaQueryDepartment
+ON Department  (name_department);

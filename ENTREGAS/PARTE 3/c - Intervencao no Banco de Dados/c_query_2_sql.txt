@@ -1,0 +1,16 @@
+/* codigo sql 
+* QUERY 2 */
+
+/* QUERY 2: CRIAÇÃO DE ÍNDICES */
+
+CREATE INDEX indicesegundaQuery
+ON director (idt_employee);
+ 
+CREATE INDEX indicesegundaQueryManager
+ON manager (idt_employee);
+ 
+CREATE INDEX indicesegundaQueryEspecialist
+ON especialist (idt_employee);
+ 
+CREATE INDEX indicesegundaQueryAnalyst
+ON analyst (idt_employee);
