@@ -1,0 +1,25 @@
+/* codigo sql EXPLAIN 
+* QUERY 1 */
+
+/* antes: Query 1 seleciona o funcionario, seu ID, seu nivel de conhecimento e seu time, assim como o ID do seu time */
+explain SELECT A.idt_employee, A.name_employee, B.name_knowledge ,A.idt_team,  A.name_team 
+FROM (
+	SELECT E.idt_level_knowledge, E.name_employee, E.idt_employee, T.name_team, T.idt_team 
+	FROM Employee as E
+	INNER JOIN Team as T
+	ON E.idt_team  = T.idt_team 
+	) as A 
+INNER JOIN level_knowledge as B ON A.idt_level_knowledge = B.idt_level_knowledge 
+ORDER BY A.name_team,  B.idt_level_knowledge;
+
+/* depois: Query 1 seleciona o funcionario, seu time e seus "ID"s correspondentes apos modificacoes realizadas no modelo e apos o artefato A;
+* 	Pelo fato de que agora apenas um analista ou especialista possuem nivel de conhecimento, tais atributos e tabelas foram tirados da consulta.
+*/
+explain SELECT a.idt_employee, a.name_employee, t.idt_team,  t.name_team
+FROM(
+	SELECT e.name_employee, e.idt_employee, d.idt_project 
+	FROM Employee as e
+	INNER JOIN Department as d ON d.idt_department  = e.idt_department
+	) as a
+LEFT JOIN Team as t ON t.idt_project = a.idt_project
+ORDER BY t.name_team;

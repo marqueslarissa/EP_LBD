@@ -1,0 +1,141 @@
+/* POSTGRES - ALTERACAO DO MODELO: POPULA BANCO
+* Tabelas: 
+*	Sale_History e Sale - remocao do campo idt_project pois nao ha relacionamento;
+*	Department_Management - remocao do campo idt_employee pois nao ha relacionamento;
+*	Employee - remocao do campo idt_team pois nao ha relacionamento;
+*	Department_Management - adicao de mais um campo 'DEFAULT' que faltava;
+*/
+
+INSERT INTO Level_knowledge VALUES(DEFAULT, 'Estagiario');
+INSERT INTO Level_knowledge VALUES(DEFAULT, 'Júnior 1');
+INSERT INTO Level_knowledge VALUES(DEFAULT, 'Júnior 2');
+INSERT INTO Level_knowledge VALUES(DEFAULT, 'Júnior 3');
+INSERT INTO Level_knowledge VALUES(DEFAULT, 'Pleno 1');
+INSERT INTO Level_knowledge VALUES(DEFAULT, 'Pleno 2');
+INSERT INTO Level_knowledge VALUES(DEFAULT, 'Pleno 3');
+INSERT INTO Level_knowledge VALUES(DEFAULT, 'Senior 1');
+INSERT INTO Level_knowledge VALUES(DEFAULT, 'Senior 2');
+INSERT INTO Level_knowledge VALUES(DEFAULT, 'Senior 3');
+INSERT INTO Level_knowledge VALUES(DEFAULT, 'Especialista 1');
+INSERT INTO Level_knowledge VALUES(DEFAULT, 'Especialista 2');
+INSERT INTO Level_knowledge VALUES(DEFAULT, 'Especialista 3');
+
+INSERT INTO Project VALUES(DEFAULT, 'Projeto Blissey', '2020-01-01', '2020-12-14');
+INSERT INTO Project VALUES(DEFAULT, 'Projeto Chansey', '2019-03-12', '2020-01-12');
+INSERT INTO Project VALUES(DEFAULT, 'Projeto Articuno', '2018-03-12', '2019-05-20');
+INSERT INTO Project VALUES(DEFAULT, 'Projeto Charmander', '2020-03-12', '2021-02-16');
+INSERT INTO Project VALUES(DEFAULT, 'Projeto Arceus', '2020-04-10', '2022-01-09');
+
+INSERT INTO Sale VALUES(DEFAULT,'2019-12-28',1000.00, 1);
+INSERT INTO Sale VALUES(DEFAULT,'2019-01-03',3500.00, 2);
+INSERT INTO Sale VALUES(DEFAULT,'2017-12-30',30000.00, 3);
+INSERT INTO Sale VALUES(DEFAULT,'2020-01-19',5000.00, 4);
+INSERT INTO Sale VALUES(DEFAULT,'2019-12-20',10000.00, 5);
+
+
+INSERT INTO Financial_control VALUES(DEFAULT,1000.00, 1);
+INSERT INTO Financial_control VALUES(DEFAULT,3500.00, 2);
+INSERT INTO Financial_control VALUES(DEFAULT,30000.00, 3);
+INSERT INTO Financial_control VALUES(DEFAULT,5000.00, 4);
+INSERT INTO Financial_control VALUES(DEFAULT,10000.00, 5);
+
+INSERT INTO Department VALUES(DEFAULT, 'Finanças', 3);
+INSERT INTO Department VALUES(DEFAULT, 'Tecnologia', 5);
+INSERT INTO Department VALUES(DEFAULT, 'Operacional', 2);
+INSERT INTO Department VALUES(DEFAULT, 'Comercial', 4);
+INSERT INTO Department VALUES(DEFAULT, 'Relações Humanas', 1);
+
+INSERT INTO Team VALUES(DEFAULT, 'Alpha', 1);
+INSERT INTO Team VALUES(DEFAULT, 'Beta', 2);
+INSERT INTO Team VALUES(DEFAULT, 'Omega', 3);
+INSERT INTO Team VALUES(DEFAULT, 'Delta', 4);
+INSERT INTO Team VALUES(DEFAULT, 'Tau', 5);
+
+INSERT INTO Dependent VALUES(DEFAULT, 'Betina Josefa Eduarda Corte Real');
+INSERT INTO Dependent VALUES(DEFAULT, 'Helena Heloisa Almeida');
+INSERT INTO Dependent VALUES(DEFAULT, 'Julio Tiago Manuel Araújo');
+INSERT INTO Dependent VALUES(DEFAULT, 'Cristiane Manuela Antonella Pires');
+INSERT INTO Dependent VALUES(DEFAULT, 'Maya Vera Assis');
+INSERT INTO Dependent VALUES(DEFAULT, 'Carolina Heloisa Caldeira');
+INSERT INTO Dependent VALUES(DEFAULT, 'Diego Anderson Bernardes');
+INSERT INTO Dependent VALUES(DEFAULT, 'Emanuelly Esther Barbosa');
+INSERT INTO Dependent VALUES(DEFAULT, 'Marcela Isabela Cecília Melo');
+INSERT INTO Dependent VALUES(DEFAULT, 'Emily Maitê Analu da Rocha');
+INSERT INTO Dependent VALUES(DEFAULT, 'Diego Nicolas Murilo da Silva');
+INSERT INTO Dependent VALUES(DEFAULT, 'Augusto Breno Rodrigo da Costa');
+INSERT INTO Dependent VALUES(DEFAULT, 'Isadora Raquel Jéssica Moraes');
+INSERT INTO Dependent VALUES(DEFAULT, 'Yuri Noah Thomas Cardoso');
+INSERT INTO Dependent VALUES(DEFAULT, 'Enzo José Monteiro');
+INSERT INTO Dependent VALUES(DEFAULT, 'Daniel Alexandre Viana');
+INSERT INTO Dependent VALUES(DEFAULT, 'Anderson Geraldo Moura');
+INSERT INTO Dependent VALUES(DEFAULT, 'Enrico Alexandre Rodrigues');
+INSERT INTO Dependent VALUES(DEFAULT, 'Fernanda Juliana Viana');
+INSERT INTO Dependent VALUES(DEFAULT, 'Larissa Letícia Benedita Moura');
+INSERT INTO Dependent VALUES(DEFAULT, 'Lucca Augusto André Alves');
+INSERT INTO Dependent VALUES(DEFAULT, 'Lorena Priscila Vitória da Rosa');
+INSERT INTO Dependent VALUES(DEFAULT, 'Sebastiana Eduarda Cecília Ferreira');
+
+INSERT INTO Manager VALUES(DEFAULT,'Andreia Sara Maria Cavalcanti', '2017-04-10', 30000.00, 1, '{"mobile":"+551194394419","landline":"+551142632872"}', ('Rua Uruguai 1952', 'Santana de Parnaíba', 'São Paulo', '06502-300'), 1, 15000.00, 'VolksWagen FOX, BUC-0580');
+INSERT INTO Manager VALUES(DEFAULT, 'Antonella Natália Ayla Novaes', '2017-01-10', 30000.00, 2, '{"mobile":"+551194447769","landline":"+551142220172","comercial":"+5511128527281"}', ('Rua Maria Alves Margarida 1509', 'Osasco', 'São Paulo', '06236-202'), 2, 15000.00, 'Ford EcoSport, FPR-1046');
+INSERT INTO Manager VALUES(DEFAULT, 'Iago João Vinicius da Cunha', '2017-01-10', 30000.00, 3, '{"landline":"+551142678548","comercial":"+5511983727326"}', ('Travessa Quatro 906', 'Barra Mansa', 'Rio de Janeiro', '27333-380'), 3, 15000.00, 'Fiat Stilo, FWQ-3477');
+INSERT INTO Manager VALUES(DEFAULT, 'Luiza Jaqueline Sales', '2018-01-10', 13000.00, 4, '{"mobile":"+551194983769","comercial":"+5511983788611"}', ('Rua Novo México 788', 'São Paulo', 'São Paulo', '04340-030'), 4, 6500.00, 'Renault Megane, CQO-1552');
+INSERT INTO Manager VALUES(DEFAULT, 'Brenda Emanuelly Isabela da Conceição', '2017-01-10', 15000.00, 5, '{"mobile":"+551194309154"}', ('Rua Oliveiras 828', 'Jundiaí', 'São Paulo', '13211-528'), null, 7500.00, 'VolksWagen up!, DEL-4898');
+
+INSERT INTO Analyst VALUES(DEFAULT, 'Nelson Paulo Lorenzo Ramos', '2020-01-01', 1000.00, 1, '{"mobile":"+551194398769","landline":"+551142678172","comercial":"+5511983727281"}', ('Rua Vinte de Agosto 1081', 'São Bernardo do Campo', 'São Paulo', '09770-380'), 5, 1, 'Universidade de São Paulo', 'Sistemas de Informação');
+INSERT INTO Analyst VALUES(DEFAULT, 'Lorena Tatiane Duarte', '2019-03-12', 3000.00, 1, '{"mobile":"+551194482769","comercial":"+5511980317281"}', ('Avenida Santo Antônio 484', 'Osasco', 'São Paulo', '06083-200'), 6, 2, 'FATEC', 'Análise e Desenvolvimento de Sistemas');
+INSERT INTO Analyst VALUES(DEFAULT, 'Julio Victor Porto', '2019-01-01', 7000.00, 3, '{"mobile":"+5511943909389","landline":"+551142694266","comercial":"+5511922727281"}', ('Avenida Cidade de Olinda 1682', 'Praia Grande', 'São Paulo', '11706-130'), 7, 5, 'Universidade de São Paulo', 'Ciência da Computação');
+INSERT INTO Analyst VALUES(DEFAULT, 'Gustavo Rodrigo Leonardo Barbosa', '2020-01-01', 1000.00, 4, '{"landline":"+551142118172","comercial":"+5511983706181"}', ('Rua Itororós 189', 'São Paulo', 'São Paulo', '05688-060'), null, 1, 'UNIP', 'Engenharia da Computação');
+INSERT INTO Analyst VALUES(DEFAULT, 'Gabriel Pietro da Cruz', '2019-09-12', 7000.00, 5, '{"mobile":"+551194428769","landline":"+551143678122","comercial":"+5511983724511"}', ('Rua Ipiranga 1453', 'Itaquaquecetuba', 'São Paulo', '08590-009'), 8, 3, 'FIAP', 'Engenharia de Controle e Automação');
+INSERT INTO Analyst VALUES(DEFAULT, 'Clara Sônia Caldeira', '2018-12-28', 10000.00, 1, '{"comercial":"+5511983346181"}', ('Rua Três Barras 309', 'Barueri', 'São Paulo', '06463-330'), 9, 6, 'FATEC', 'Sistemas de Informação');
+INSERT INTO Analyst VALUES(DEFAULT, 'Alexandre Enzo Ferreira', '2019-03-12', 7000.00, 2, '{"mobile":"+5511943092855"}', ('Rua Evaristo de Morais 535', 'Santo André', 'São Paulo', '09185-420'), 10, 5, 'UNIP', 'Ciência da Computação');
+INSERT INTO Analyst VALUES(DEFAULT, 'Camila Sophia Cristiane Sales', '2019-03-12', 7000.00, 3, '{"mobile":"+551194312763","landline":"+551142633172"}', ('Alameda Jandaia 1245', 'Atibaia', 'São Paulo', '12949-156'), 11, 5, 'UFABC', 'Ciência da Computação');
+INSERT INTO Analyst VALUES(DEFAULT, 'Julia Isabelly Nunes', '2018-12-12', 10000.00, 2, '{"mobile":"+5511987197691"}', ('Rua Irã 1821', 'Barueri', 'São Paulo', '06413-790'), null, 6, 'FIAP', 'Engenharia da Computação');
+INSERT INTO Analyst VALUES(DEFAULT, 'Antônia Teresinha Isabel da Mata', '2019-12-28', 1000.00, 4, '{"comercial":"+5511988730281"}', ('Rua Antônio Matrone 6', 'Mauá', 'São Paulo', '09351-630'), 12, 2, 'FATEC', 'Análise e Desenvolvimento de Sistemas');
+INSERT INTO Analyst VALUES(DEFAULT, 'Rodrigo Joaquim Breno Freitas', '2019-09-12', 7000.00, 5, '{"mobile":"+551194398337"}', ('Rua Eusebio Nogueira Machado 955', 'Jundiaí', 'São Paulo', '13212-451'), 13, 3, 'Universidade de São Paulo', 'Engenharia da Computação');
+INSERT INTO Analyst VALUES(DEFAULT, 'Daniel Severino Figueiredo', '2018-12-12', 10000.00, 1, '{"mobile":"+5511943671982"}', ('Rua Waldomiro Silveira 883', 'Santos', 'São Paulo', '11055-150'), 14, 6, 'FIAP', 'Engenharia e Analise de Dados');
+INSERT INTO Analyst VALUES(DEFAULT, 'Josefa Patrícia Peixoto', '2020-01-01', 1000.00, 2, '{"landline":"+551142018172","comercial":"+5511983997181"}', ('Rua José Ângelo Marchi 1788', 'São Carlos', 'São Paulo', '13565-590'), 15, 1, 'UFABC', 'Engenharia da Computação');
+INSERT INTO Analyst VALUES(DEFAULT, 'Francisca Kamilly Débora Assunção', '2019-05-12', 8000.00, 3, '{"landline":"+551142609372","comercial":"+5511983016281"}', ('Rua João Rodrigues Serra 218', 'Campinas', 'São Paulo', '13063-240'), 16, 4, 'UNIP', 'Mineração de Processos');
+INSERT INTO Analyst VALUES(DEFAULT, 'Patrícia Sara Maya Gonçalves', '2019-03-12', 10000.00, 4, '{"mobile":"+551194300519"}', ('Rua Sorocaba 1227', 'Itapevi', 'São Paulo', '06695-120'), 17, 6, 'FATEC', 'Engenharia de Dados');
+
+INSERT INTO Especialist VALUES(DEFAULT, 'Teresinha Tereza Luzia Teixeira', '2018-12-28', 10000.00, 1, '{"mobile":"+551193365709"}', ('Rua Espacial 110', 'Barueri', 'São Paulo', '06410-270'), 18, 12, 'ALCON ENGENHARIA DE SISTEMAS LTDA', '58.062.365/0001-20');
+INSERT INTO Especialist VALUES(DEFAULT, 'Eliane Giovana Rita Silva', '2018-12-28', 10000.00, 2, '{"mobile":"+551194231789","landline":"+551142673372","comercial":"+5511912827281"}', ('Rua Valzinho Teixeira 1286', 'Rio de Janeiro', 'Rio de Janeiro', '23042-125'), 19, 11, 'ANIELTEC DESENVOLVIMENTO DE SISTEMAS-EIRELI', '10.788.668/0001-07');
+INSERT INTO Especialist VALUES(DEFAULT, 'Rita Ana Melo', '2017-12-12', 25000.00, 3, '{"mobile":"+551194468769","landline":"+551143452972","comercial":"+5511909827281"}', ('Rua Afonso de Carvalho 571', 'Belo Horizonte', 'Minas Gerais', '31255-350'), 20, 13, 'ASSOCIACAO DO LAB. DE SISTEMAS INTEGRAVEIS TECNOL.-LSI-TEC', '03.018.444/0001-42');
+INSERT INTO Especialist VALUES(DEFAULT, 'Cristiane Ana Drumond', '2018-01-10', 13000.00, 4, '{"mobile":"+5511988764696"}', ('Rua Antônio Antunes de Almeida 388', 'Sorocaba', 'São Paulo', '18021-190'), 21, 11, 'DIGIMEC CONTROLES E SISTEMAS LTDA', '14.447.680/0001-09');
+INSERT INTO Especialist VALUES(DEFAULT, 'Cristiane Vitória Vieira', '2018-01-10', 13000.00, 5, '{"mobile":"+5511914301459"}', ('Rua José Geraldo Miranda 360', 'Varginha', 'Minas Gerais', '37022-350'), 22, 13, 'LUPA TECNOLOGIA E SISTEMAS LTDA', '04.849.297/0001-15');
+
+INSERT INTO Director VALUES(DEFAULT, 'Diego Jorge Santos', '2015-01-10', 90000.00, 2, '{"comercial":"+5511983091251"}', ('Avenida 51 1226', 'Rio Claro', 'São Paulo', '13501-240'), 23, '50%', 'Porsche Cayman, EVU-3760');
+
+INSERT INTO Department_Management VALUES(DEFAULT, 2);
+
+INSERT INTO Sale_history VALUES(DEFAULT,'2019-12-28',1000.00, 1);
+INSERT INTO Sale_history VALUES(DEFAULT,'2019-01-03',3500.00, 2);
+INSERT INTO Sale_history VALUES(DEFAULT,'2017-12-30',30000.00, 3);
+INSERT INTO Sale_history VALUES(DEFAULT,'2020-01-19',5000.00, 4);
+INSERT INTO Sale_history VALUES(DEFAULT,'2019-12-20',10000.00, 5);
+
+INSERT INTO Employee_History VALUES(DEFAULT, '2020-01-01', 1000.00, 1);
+INSERT INTO Employee_History VALUES(DEFAULT, '2019-03-12', 3000.00, 2);
+INSERT INTO Employee_History VALUES(DEFAULT, '2019-01-01', 7000.00, 5);
+INSERT INTO Employee_History VALUES(DEFAULT, '2018-12-28', 10000.00, 6);
+INSERT INTO Employee_History VALUES(DEFAULT, '2017-04-10', 30000.00, 13);
+INSERT INTO Employee_History VALUES(DEFAULT, '2020-01-01', 1000.00, 1);
+INSERT INTO Employee_History VALUES(DEFAULT, '2019-09-12', 7000.00, 3);
+INSERT INTO Employee_History VALUES(DEFAULT, '2018-12-28', 10000.00, 6);
+INSERT INTO Employee_History VALUES(DEFAULT, '2018-12-28', 10000.00, 6);
+INSERT INTO Employee_History VALUES(DEFAULT, '2017-01-10', 30000.00, 13);
+INSERT INTO Employee_History VALUES(DEFAULT, '2019-03-12', 7000.00, 51);
+INSERT INTO Employee_History VALUES(DEFAULT, '2019-03-12', 7000.00, 52);
+INSERT INTO Employee_History VALUES(DEFAULT, '2018-12-12', 10000.00, 6);
+INSERT INTO Employee_History VALUES(DEFAULT, '2017-12-12', 25000.00, 12);
+INSERT INTO Employee_History VALUES(DEFAULT, '2017-01-10', 30000.00, 13);
+INSERT INTO Employee_History VALUES(DEFAULT, '2019-12-28', 1000.00, 2);
+INSERT INTO Employee_History VALUES(DEFAULT, '2019-09-12', 7000.00, 3);
+INSERT INTO Employee_History VALUES(DEFAULT, '2018-12-12', 10000.00, 6);
+INSERT INTO Employee_History VALUES(DEFAULT, '2018-01-10', 13000.00, 10);
+INSERT INTO Employee_History VALUES(DEFAULT, '2018-01-10', 13000.00, 10);
+INSERT INTO Employee_History VALUES(DEFAULT, '2020-01-01', 1000.00, 1);
+INSERT INTO Employee_History VALUES(DEFAULT, '2019-05-12', 8000.00, 4);
+INSERT INTO Employee_History VALUES(DEFAULT, '2019-03-12', 10000.00, 6);
+INSERT INTO Employee_History VALUES(DEFAULT, '2018-01-10', 13000.00, 10);
+INSERT INTO Employee_History VALUES(DEFAULT, '2017-01-10', 30000.00, 13);
+INSERT INTO Employee_History VALUES(DEFAULT, '2015-01-10', 90000.00, 13);

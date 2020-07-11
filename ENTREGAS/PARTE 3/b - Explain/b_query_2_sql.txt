@@ -1,0 +1,22 @@
+/* codigo sql EXPLAIN
+* QUERY 2 */
+
+/* antes: Query 2 selecionar a média salarial dos gestores */
+explain SELECT AVG(E.salary)
+FROM employee as E NATURAL JOIN team as T NATURAL JOIN manager as M
+WHERE E.idt_employee = M.fk_Employee_idt_employee;
+
+/* depois: Query 2 seleciona a média salarial geral dos diretores, gestores, especialistas e analistas, 
+* além de retornar a quantidade de funcionarios em cada tabela;
+*	Apos implementacao de heranca no artefato A vimos a possibilidade de realizar a media salarial para cada um, nao
+* somente para gestores.
+*/
+explain SELECT	COUNT (d.idt_employee) as qty_Director, AVG(d.salary) as mean_salary_Director,
+		COUNT (m.idt_employee) as qty_Manager, AVG(m.salary) as mean_salary_Manager,
+		COUNT (es.idt_employee) as qty_Especialist, AVG(es.salary) as mean_salary_Especialist,
+		COUNT (a.idt_employee) as qty_Analyst, AVG(a.salary) as mean_salary_Analyst
+FROM employee as e 
+LEFT JOIN director as d ON d.idt_employee = e.idt_employee
+LEFT JOIN manager as m ON m.idt_employee = e.idt_employee
+LEFT JOIN especialist as es ON es.idt_employee = e.idt_employee
+LEFT JOIN analyst as a ON a.idt_employee = e.idt_employee;

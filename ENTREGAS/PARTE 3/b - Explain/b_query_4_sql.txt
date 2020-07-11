@@ -1,0 +1,24 @@
+/* codigo sql EXPLAIN
+* QUERY 4 */
+
+/* antes: Query 4 selecionar o empregado que possui mais de dois dependentes */
+explain SELECT E.name_employee
+FROM Employee E 
+LEFT JOIN (SELECT idt_employee, COUNT (*) as qtDependent FROM Dependent GROUP BY idt_employee) D ON E.idt_employee = D.idt_employee
+WHERE D.qtDependent > 2
+ 
+ 
+/* depois: Query 4 seleciona o nome do dependente, o nome do empregado e 
+* o nome do departamento ordenado pelo nome do departamento.
+* 	Apos a alteracao no artefato A, ao adicionar a heranca na tabela "Employee", o
+* postgres nao permitia nenhum objeto que possuisse a chave estrangeira da tabela
+* "Employee". Sendo assim, agora nao e mais possivel um funcionario possuir mais do
+* que um dependente. O valores do campo idt_dependent, para os registros dessa mesma tabela, 
+* podem variar (sequenciais e 'null' e deve possuir o valor correspondente ao idt_dependente
+* inserido na tabela "Dependent".
+*/
+explain SELECT D.name_dependent, E.name_employee, DE.name_department
+FROM Dependent AS D 
+INNER JOIN Employee AS E ON E.idt_dependent = D.idt_dependent
+INNER JOIN Department AS DE ON DE.idt_department = E.idt_department
+ORDER BY DE.name_department

@@ -1,15 +1,15 @@
 /* codigo sql EXPLAIN
-* QUERY NOVA 2 */
+* A QUERY 2 FOI ESCOLHIDA PARA UTILIZAR ESTRATEGIAS EQUIVALENTES */
 
 /* Query 2 seleciona a média salarial geral dos diretores, gestores, especialistas e analistas, 
-* além de retornar a quantidade de funcionarios em cada tabela; - UTILIZA UM CROSS JOIN AO INVES DE LEFT JOIN
+* além de retornar a quantidade de funcionarios em cada tabela
 */
 explain SELECT	COUNT (d.idt_employee) as qty_Director, AVG(d.salary) as mean_salary_Director,
 		COUNT (m.idt_employee) as qty_Manager, AVG(m.salary) as mean_salary_Manager,
 		COUNT (es.idt_employee) as qty_Especialist, AVG(es.salary) as mean_salary_Especialist,
 		COUNT (a.idt_employee) as qty_Analyst, AVG(a.salary) as mean_salary_Analyst
-FROM director as d --ON d.idt_employee = e.idt_employee
-CROSS JOIN employee e
+FROM employee as e 
+LEFT JOIN director as d ON d.idt_employee = e.idt_employee
 LEFT JOIN manager as m ON m.idt_employee = e.idt_employee
 LEFT JOIN especialist as es ON es.idt_employee = e.idt_employee
-LEFT JOIN analyst as a ON a.idt_employee = e.idt_employee
+LEFT JOIN analyst as a ON a.idt_employee = e.idt_employee;
